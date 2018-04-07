@@ -179,6 +179,18 @@ public class Employee {
 
 
 
+	public List<Sale> getSales() {
+		return sales;
+	}
+
+
+
+	public void setSales(List<Sale> sales) {
+		this.sales = sales;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", isManager="
