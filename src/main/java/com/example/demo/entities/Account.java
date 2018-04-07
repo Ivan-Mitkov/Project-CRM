@@ -89,8 +89,6 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-
 	public Account(String name, String email, String phone, Adress adress, List<Contact> contacts, List<Event> events,
 			List<Task> tasks, List<Opportunity> opportunities, List<Employee> workingForThisAccount,
 			List<Sale> salesForThisAccount) {
