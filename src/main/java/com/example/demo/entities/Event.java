@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -41,6 +42,15 @@ public class Event {
 	@Column(name="date_and_time")
 	private LocalDateTime dateAndTime;
 	
+	@ManyToOne(fetch=FetchType.LAZY,			
+			cascade= 
+				{CascadeType.DETACH,
+				CascadeType.MERGE,
+				CascadeType.PERSIST,
+				CascadeType.REFRESH})
+			@JoinColumn(name="account_id")
+	private Account account;
+	
 	@ManyToMany(fetch=FetchType.LAZY,cascade= 
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
@@ -57,14 +67,19 @@ public class Event {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Event(Adress location, String subject, String description, LocalDateTime dateAndTime,
+	
+
+	public Event(Adress location, String subject, String description, LocalDateTime dateAndTime, Account account,
 			List<Employee> events) {
 		this.location = location;
 		this.subject = subject;
 		this.description = description;
 		this.dateAndTime = dateAndTime;
+		this.account = account;
 		this.events = events;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -103,6 +118,14 @@ public class Event {
 
 	public void setEvents(List<Employee> events) {
 		this.events = events;
+	}
+	
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 	@Override

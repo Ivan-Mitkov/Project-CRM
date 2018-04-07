@@ -46,21 +46,21 @@ public class Account {
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
 		CascadeType.PERSIST,
-		CascadeType.REFRESH})
-	@JoinColumn(name="contact_id")
+		CascadeType.REFRESH},
+		mappedBy="account")
+	
 	private List<Contact>contacts;
 	
-	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="event_id")//foreign key in Event class 
-	//tell hibernate how to associate this List with event
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,
+			mappedBy="account")
 	private List<Event> events;
 	
-	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="task_id")//foreign key in Event class 
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,
+			mappedBy="account")
 	private List<Task> tasks;
 	
-	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="opportunity_id")//foreign key in Event class 
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,
+	mappedBy="account")
 	private List<Opportunity> opportunities;
 	
 	@ManyToMany(fetch=FetchType.LAZY,cascade= 
@@ -79,8 +79,8 @@ public class Account {
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
 		CascadeType.PERSIST,
-		CascadeType.REFRESH})
-	@JoinColumn(name="sale_id")
+		CascadeType.REFRESH},mappedBy="account")
+	
 	private List<Sale> salesForThisAccount;
 	
 	

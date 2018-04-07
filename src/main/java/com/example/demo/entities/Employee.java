@@ -83,8 +83,8 @@ public class Employee {
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
 		CascadeType.PERSIST,
-		CascadeType.REFRESH})
-	@JoinColumn(name="sale_id")
+		CascadeType.REFRESH},mappedBy="employee")
+	
 	private List<Sale>sales;
 	
 	
@@ -93,9 +93,8 @@ public class Employee {
 	}
 	
 	
-
 	public Employee(String name, String email, String phone, boolean isManager, boolean isCurrentEmployee,
-			List<Task> tasks, List<Employee> employees, List<Account> accounts, List<Event> events) {
+			List<Task> tasks, List<Employee> employees, List<Account> accounts, List<Event> events, List<Sale> sales) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -105,8 +104,8 @@ public class Employee {
 		this.employees = employees;
 		this.accounts = accounts;
 		this.events = events;
+		this.sales = sales;
 	}
-
 
 
 	public Long getId() {
@@ -188,7 +187,7 @@ public class Employee {
 	public void setSales(List<Sale> sales) {
 		this.sales = sales;
 	}
-
+	
 
 
 	@Override

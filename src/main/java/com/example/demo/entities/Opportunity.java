@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,14 +36,28 @@ public class Opportunity {
 	private Status status;
 	
 	
+	@ManyToOne(fetch=FetchType.LAZY,			
+	cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinColumn(name="account_id")
+	private Account account;
+	
 	public Opportunity() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Opportunity(List<Contact> contact, Status status) {
+	
+
+	public Opportunity(List<Contact> contact, Status status, Account account) {
 		this.contact = contact;
 		this.status = status;
+		this.account = account;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -64,6 +79,14 @@ public class Opportunity {
 
 	public void setContact(List<Contact> contact) {
 		this.contact = contact;
+	}
+	
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 	@Override

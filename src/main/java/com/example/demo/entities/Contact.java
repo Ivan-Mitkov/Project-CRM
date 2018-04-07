@@ -1,10 +1,14 @@
 package com.example.demo.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,16 +33,29 @@ public class Contact {
 	
 	@Column(name="is_contactable")
 	private boolean isContactable;
+	
+	@ManyToOne(fetch=FetchType.LAZY,			
+			cascade= 
+				{CascadeType.DETACH,
+				CascadeType.MERGE,
+				CascadeType.PERSIST,
+				CascadeType.REFRESH})
+			@JoinColumn(name="account_id")
+	private Account account;
+	
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
-	public Contact(String name, String email, String phone, String reportTo, boolean isContactable) {
+	
+	public Contact(String name, String email, String phone, String reportTo, boolean isContactable, Account account) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.reportTo = reportTo;
 		this.isContactable = isContactable;
+		this.account = account;
 	}
+
 	public Long getId() {
 		return id;
 	}
@@ -75,6 +92,15 @@ public class Contact {
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
 	}
+	
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
 	@Override
 	public String toString() {
 		return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", reportTo="
