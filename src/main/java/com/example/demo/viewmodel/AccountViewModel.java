@@ -29,27 +29,6 @@ public class AccountViewModel {
 	private List<SaleViewModel> salesForThisAccount;
 	
 	
-	public AccountViewModel() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public AccountViewModel(String name, String email, String phone, AdressViewModel adress, List<ContactViewModel> contacts, List<EventViewModel> events,
-			List<TaskViewModel> tasks, List<OpportunityViewModel> opportunities, List<EmployeeViewModel> workingForThisAccount,
-			List<SaleViewModel> salesForThisAccount) {
-		this.name = name;
-		this.email = email;
-		this.phone = phone;
-		this.adress = adress;
-		this.contacts = contacts;
-		this.events = events;
-		this.tasks = tasks;
-		this.opportunities = opportunities;
-		this.workingForThisAccount = workingForThisAccount;
-		this.salesForThisAccount = salesForThisAccount;
-	}
-
-
-
 	public Long getId() {
 		return id;
 	}
@@ -118,10 +97,4 @@ public class AccountViewModel {
 		this.salesForThisAccount = salesForThisAccount;
 	}
 
-	@Override
-	public String toString() {
-		return "Account [id=" + id + ", name=" + name + "]";
-	}
-	
-	
 }

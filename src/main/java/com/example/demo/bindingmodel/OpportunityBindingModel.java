@@ -1,13 +1,14 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 import java.util.List;
 
-public class OpportunityViewModel {
+public class OpportunityBindingModel {
 	
 	private Long id;
-	private List<ContactViewModel> contact;
+	private List<ContactBindingModel> contact;
 	private String status;
 	
+
 	public Long getId() {
 		return id;
 	}
@@ -22,11 +23,11 @@ public class OpportunityViewModel {
 		this.status = status;
 	}
 	
-	public List<ContactViewModel> getContact() {
+	public List<ContactBindingModel> getContact() {
 		return contact;
 	}
 
-	public void setContact(List<ContactViewModel> contact) {
+	public void setContact(List<ContactBindingModel> contact) {
 		this.contact = contact;
 	}
 

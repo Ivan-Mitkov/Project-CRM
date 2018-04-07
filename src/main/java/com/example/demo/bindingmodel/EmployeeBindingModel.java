@@ -1,9 +1,9 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 import java.util.List;
 
 
-public class EmployeeViewModel {
+public class EmployeeBindingModel {
 
 	private Long id;
 	private String name;
@@ -12,15 +12,15 @@ public class EmployeeViewModel {
 	private boolean isManager;	
 	private boolean isCurrentEmployee;
 	
-	private List<TaskViewModel> tasks;
+	private List<TaskBindingModel> tasks;
 	
-	private List<EmployeeViewModel> employees;
+	private List<EmployeeBindingModel> employees;
 	
-	private List<AccountViewModel> accounts;
+	private List<AccountBindingModel> accounts;
 	
-	private List<EventViewModel>events;
+	private List<EventBindingModel>events;
 	
-	private List<SaleViewModel>sales;
+	private List<SaleBindingModel>sales;
 	
 	public Long getId() {
 		return id;
@@ -58,43 +58,42 @@ public class EmployeeViewModel {
 	public void setCurrentEmployee(boolean isCurrentEmployee) {
 		this.isCurrentEmployee = isCurrentEmployee;
 	}
-	public List<TaskViewModel> getTasks() {
+	public List<TaskBindingModel> getTasks() {
 		return tasks;
 	}
-	public void setTasks(List<TaskViewModel> tasks) {
+	public void setTasks(List<TaskBindingModel> tasks) {
 		this.tasks = tasks;
 	}
-	public List<EmployeeViewModel> getEmployees() {
+	public List<EmployeeBindingModel> getEmployees() {
 		return employees;
 	}
-	public void setEmployees(List<EmployeeViewModel> employees) {
+	public void setEmployees(List<EmployeeBindingModel> employees) {
 		this.employees = employees;
 	}
 	
-	public List<AccountViewModel> getAccounts() {
+	public List<AccountBindingModel> getAccounts() {
 		return accounts;
 	}
 
-	public void setAccounts(List<AccountViewModel> accounts) {
+	public void setAccounts(List<AccountBindingModel> accounts) {
 		this.accounts = accounts;
 	}
 	
 
-	public List<EventViewModel> getEvents() {
+	public List<EventBindingModel> getEvents() {
 		return events;
 	}
 
-	public void setEvents(List<EventViewModel> events) {
+	public void setEvents(List<EventBindingModel> events) {
 		this.events = events;
 	}
 
-	public List<SaleViewModel> getSales() {
+	public List<SaleBindingModel> getSales() {
 		return sales;
 	}
 
-	public void setSales(List<SaleViewModel> sales) {
+	public void setSales(List<SaleBindingModel> sales) {
 		this.sales = sales;
 	}
 
-	
 }

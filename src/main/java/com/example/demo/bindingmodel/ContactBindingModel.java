@@ -1,7 +1,7 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 
-public class ContactViewModel {
+public class ContactBindingModel {
 	
 	private Long id;
 	private String name;
@@ -46,6 +46,5 @@ public class ContactViewModel {
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
 	}
-	
 	
 }

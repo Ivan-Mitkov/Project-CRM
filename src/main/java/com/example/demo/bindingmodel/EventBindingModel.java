@@ -1,27 +1,28 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 import java.util.List;
 
 
-public class EventViewModel {
+public class EventBindingModel {
 
 	private Long id;	
-	private AdressViewModel location;	
+	private AdressBindingModel location;	
 	private String subject;	
 	private String description;	
 	private String dateAndTime;	
-	private List<EmployeeViewModel> events;
+	private List<EmployeeBindingModel> events;
 	
+
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public AdressViewModel getLocation() {
+	public AdressBindingModel getLocation() {
 		return location;
 	}
-	public void setLocation(AdressViewModel location) {
+	public void setLocation(AdressBindingModel location) {
 		this.location = location;
 	}
 	public String getSubject() {
@@ -43,14 +44,13 @@ public class EventViewModel {
 		this.dateAndTime = dateAndTime;
 	}
 	
-	public List<EmployeeViewModel> getEvents() {
+	public List<EmployeeBindingModel> getEvents() {
 		return events;
 	}
 
-	public void setEvents(List<EmployeeViewModel> events) {
+	public void setEvents(List<EmployeeBindingModel> events) {
 		this.events = events;
 	}
 
-	
 	
 }

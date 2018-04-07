@@ -1,7 +1,7 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 
-public class AdressViewModel {
+public class AdressBindingModel {
 
 	private Long id;
 	private String country;

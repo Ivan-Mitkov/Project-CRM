@@ -1,12 +1,12 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 import java.time.LocalDate;
 
-public class SaleViewModel {
+public class SaleBindingModel {
 	
 	private Long id;
-	private EmployeeViewModel employee;
-	private ProductViewModel product;
+	private EmployeeBindingModel employee;
+	private ProductBindingModel product;
 	private Double quontity;
 	private Double price;
 	private LocalDate closedAt;
@@ -18,20 +18,18 @@ public class SaleViewModel {
 		this.id = id;
 	}
 	
-	public EmployeeViewModel getEmployee() {
+	public EmployeeBindingModel getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(EmployeeViewModel employee) {
+	public void setEmployee(EmployeeBindingModel employee) {
 		this.employee = employee;
 	}
 
-
-
-	public ProductViewModel getProduct() {
+	public ProductBindingModel getProduct() {
 		return product;
 	}
-	public void setProduct(ProductViewModel product) {
+	public void setProduct(ProductBindingModel product) {
 		this.product = product;
 	}
 	public Double getQuontity() {
@@ -53,4 +51,5 @@ public class SaleViewModel {
 		this.closedAt = closedAt;
 	}
 
+	
 }

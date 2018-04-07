@@ -1,8 +1,8 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 import com.example.demo.enums.Status;
 
-public class TaskViewModel {
+public class TaskBindingModel {
 
 	private Long id;
 	
@@ -28,5 +28,5 @@ public class TaskViewModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 }

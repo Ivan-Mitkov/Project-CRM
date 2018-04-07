@@ -1,7 +1,7 @@
-package com.example.demo.viewmodel;
+package com.example.demo.bindingmodel;
 
 
-public class ProductViewModel {
+public class ProductBindingModel {
 	
 	private Long id;
 	private String category;
@@ -53,6 +53,5 @@ public class ProductViewModel {
 	public void setAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-
 	
 }
