@@ -11,7 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +25,12 @@ public class Event {
 	@Column(name="id")
 	private Long id;
 	
-	@Column(name="adress")
+	@OneToOne(fetch=FetchType.LAZY,cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinColumn(name="adress_id")
 	private Adress location;
 	
 	@Column(name="subject")
@@ -34,25 +42,31 @@ public class Event {
 	@Column(name="date_and_time")
 	private LocalDateTime dateAndTime;
 	
-	@OneToMany(fetch=FetchType.LAZY,cascade= 
+	@ManyToMany(fetch=FetchType.LAZY,cascade= 
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
 		CascadeType.PERSIST,
 		CascadeType.REFRESH})
-	@JoinColumn(name="employee_id")//foreign key in Event class 
-	private List<Employee> toAttend;
+	@JoinTable(
+			name="event_employee",
+			joinColumns=@JoinColumn(name="event_id"),
+			inverseJoinColumns=@JoinColumn(name="employee_id")
+			)
+	private List<Employee> events;
 	
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Event(Adress location, String subject, String description, LocalDateTime dateAndTime,
-			List<Employee> toAttend) {
+			List<Employee> events) {
 		this.location = location;
 		this.subject = subject;
 		this.description = description;
 		this.dateAndTime = dateAndTime;
-		this.toAttend = toAttend;
+		this.events = events;
 	}
+
 	public Long getId() {
 		return id;
 	}
@@ -83,16 +97,19 @@ public class Event {
 	public void setDateAndTime(LocalDateTime dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
-	public List<Employee> getToAttend() {
-		return toAttend;
+	
+	public List<Employee> getEvents() {
+		return events;
 	}
-	public void setToAttend(List<Employee> toAttend) {
-		this.toAttend = toAttend;
+
+	public void setEvents(List<Employee> events) {
+		this.events = events;
 	}
+
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", location=" + location + ", subject=" + subject + ", description=" + description
-				+ ", dateAndTime=" + dateAndTime + ", toAttend=" + toAttend + "]";
+				+ ", dateAndTime=" + dateAndTime + ", toAttend=" + events + "]";
 	}
 	
 	

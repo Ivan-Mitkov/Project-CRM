@@ -10,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,14 +33,14 @@ public class Account {
 	@Column(name="phone")
 	private String phone;
 	
-	@Column(name="adress")
+	@OneToOne(fetch=FetchType.LAZY,cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinColumn(name="adress_id")
 	private Adress adress;
 	
-	@Column(name="billing_adress")
-	private Adress billingAdress;
-	
-	@Column(name="shipping_adress")
-	private Adress shippingAdress;
 	
 	@OneToMany(fetch=FetchType.LAZY,cascade= 
 		{CascadeType.DETACH,
@@ -60,10 +63,24 @@ public class Account {
 	@JoinColumn(name="opportunity_id")//foreign key in Event class 
 	private List<Opportunity> opportunities;
 	
-	@Column(name="employee")
+	@ManyToMany(fetch=FetchType.LAZY,cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinTable(
+			name="account_employee",
+			joinColumns=@JoinColumn(name="account_id"),
+			inverseJoinColumns=@JoinColumn(name="employee_id")
+			)
 	private List<Employee> workingForThisAccount;
 	
-	@Column(name="sale")
+	@OneToMany(fetch=FetchType.LAZY,cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinColumn(name="sale_id")
 	private List<Sale> salesForThisAccount;
 	
 	
@@ -72,15 +89,15 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Account(String name, String email, String phone, Adress adress, Adress billingAdress, Adress shippingAdress,
-			List<Contact> contacts, List<Event> events, List<Task> tasks, List<Opportunity> opportunities,
-			List<Employee> workingForThisAccount, List<Sale> salesForThisAccount) {
+	
+
+	public Account(String name, String email, String phone, Adress adress, List<Contact> contacts, List<Event> events,
+			List<Task> tasks, List<Opportunity> opportunities, List<Employee> workingForThisAccount,
+			List<Sale> salesForThisAccount) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.adress = adress;
-		this.billingAdress = billingAdress;
-		this.shippingAdress = shippingAdress;
 		this.contacts = contacts;
 		this.events = events;
 		this.tasks = tasks;
@@ -88,6 +105,8 @@ public class Account {
 		this.workingForThisAccount = workingForThisAccount;
 		this.salesForThisAccount = salesForThisAccount;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -119,18 +138,7 @@ public class Account {
 	public void setAdress(Adress adress) {
 		this.adress = adress;
 	}
-	public Adress getBillingAdress() {
-		return billingAdress;
-	}
-	public void setBillingAdress(Adress billingAdress) {
-		this.billingAdress = billingAdress;
-	}
-	public Adress getShippingAdress() {
-		return shippingAdress;
-	}
-	public void setShippingAdress(Adress shippingAdress) {
-		this.shippingAdress = shippingAdress;
-	}
+	
 	public List<Contact> getContacts() {
 		return contacts;
 	}

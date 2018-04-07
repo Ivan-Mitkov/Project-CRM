@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +29,7 @@ public class Opportunity {
 		CascadeType.PERSIST,
 		CascadeType.REFRESH})
 	@JoinColumn(name="contact_id")//foreign key in Event class 
-	private Contact contact;
+	private List<Contact> contact;
 	
 	@Column(name="status")
 	private Status status;
@@ -36,28 +38,34 @@ public class Opportunity {
 	public Opportunity() {
 		// TODO Auto-generated constructor stub
 	}
-	public Opportunity(Contact contact, Status status) {
+	
+	public Opportunity(List<Contact> contact, Status status) {
 		this.contact = contact;
 		this.status = status;
 	}
+
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Contact getContact() {
-		return contact;
-	}
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
+	
 	public Status getStatus() {
 		return status;
 	}
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	public List<Contact> getContact() {
+		return contact;
+	}
+
+	public void setContact(List<Contact> contact) {
+		this.contact = contact;
+	}
+
 	@Override
 	public String toString() {
 		return "Opportunity [id=" + id + ", contact=" + contact + ", status=" + status + "]";
