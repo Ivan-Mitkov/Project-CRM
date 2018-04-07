@@ -1,28 +1,22 @@
 package com.example.demo.viewmodel;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 
 public class EventViewModel {
 
-	private Long id;
-	
-	private AdressViewModel location;
-	
-	private String subject;
-	
-	private String description;
-	
-	private LocalDateTime dateAndTime;
-	
+	private Long id;	
+	private AdressViewModel location;	
+	private String subject;	
+	private String description;	
+	private String dateAndTime;	
 	private List<EmployeeViewModel> events;
 	
 	public EventViewModel() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public EventViewModel(AdressViewModel location, String subject, String description, LocalDateTime dateAndTime,
+	public EventViewModel(AdressViewModel location, String subject, String description, String dateAndTime,
 			List<EmployeeViewModel> events) {
 		this.location = location;
 		this.subject = subject;
@@ -55,10 +49,10 @@ public class EventViewModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public LocalDateTime getDateAndTime() {
+	public String getDateAndTime() {
 		return dateAndTime;
 	}
-	public void setDateAndTime(LocalDateTime dateAndTime) {
+	public void setDateAndTime(String dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
 	

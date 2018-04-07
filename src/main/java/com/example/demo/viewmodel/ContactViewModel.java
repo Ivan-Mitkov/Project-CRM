@@ -4,19 +4,10 @@ package com.example.demo.viewmodel;
 public class ContactViewModel {
 	
 	private Long id;
-
 	private String name;
-	
-
 	private String email;
-	
-	
 	private String phone;
-	
-	
 	private String reportTo;
-	
-	
 	private boolean isContactable;
 	public ContactViewModel() {
 		// TODO Auto-generated constructor stub

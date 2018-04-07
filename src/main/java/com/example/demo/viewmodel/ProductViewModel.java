@@ -4,17 +4,11 @@ package com.example.demo.viewmodel;
 public class ProductViewModel {
 	
 	private Long id;
-	
 	private String category;
-	
 	private String name;
-	
 	private String code;
-	
 	private String description;
-	
 	private Double listPrice;
-	
 	private boolean isAvailable;
 	
 	public ProductViewModel() {

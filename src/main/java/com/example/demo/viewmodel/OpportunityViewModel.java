@@ -2,23 +2,16 @@ package com.example.demo.viewmodel;
 
 import java.util.List;
 
-import com.example.demo.enums.Status;
-
 public class OpportunityViewModel {
 	
 	private Long id;
-	
 	private List<ContactViewModel> contact;
-	
-	
-	private Status status;
-	
-	
+	private String status;
 	public OpportunityViewModel() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public OpportunityViewModel(List<ContactViewModel> contact, Status status) {
+	public OpportunityViewModel(List<ContactViewModel> contact, String status) {
 		this.contact = contact;
 		this.status = status;
 	}
@@ -30,10 +23,10 @@ public class OpportunityViewModel {
 		this.id = id;
 	}
 	
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	

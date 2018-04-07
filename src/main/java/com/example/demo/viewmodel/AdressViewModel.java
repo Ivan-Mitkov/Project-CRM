@@ -4,16 +4,10 @@ package com.example.demo.viewmodel;
 public class AdressViewModel {
 
 	private Long id;
-	
 	private String country;
-	
 	private String city;
-	
 	private String street;
-	
 	private Integer streetNumber;
-	
-
 	private String additionalAdressInfo;
 	
 	public AdressViewModel() {

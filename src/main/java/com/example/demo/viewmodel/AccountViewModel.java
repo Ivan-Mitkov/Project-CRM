@@ -6,17 +6,10 @@ import java.util.List;
 public class AccountViewModel {
 	
 	private Long id;
-	
-	
 	private String name;
-	
 	private String email;
-
 	private String phone;
-	
-	
 	private AdressViewModel adress;
-	
 	
 	private List<ContactViewModel>contacts;
 	

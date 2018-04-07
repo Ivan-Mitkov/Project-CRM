@@ -6,20 +6,13 @@ import java.util.List;
 public class EmployeeViewModel {
 
 	private Long id;
-
 	private String name;
-
-	private String email;
-	
-	private String phone;
-	
-	private boolean isManager;
-	
+	private String email;	
+	private String phone;	
+	private boolean isManager;	
 	private boolean isCurrentEmployee;
 	
-	
 	private List<TaskViewModel> tasks;
-	
 	
 	private List<EmployeeViewModel> employees;
 	
