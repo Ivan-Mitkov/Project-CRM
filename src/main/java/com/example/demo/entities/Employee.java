@@ -83,8 +83,7 @@ public class Employee {
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
 		CascadeType.PERSIST,
-		CascadeType.REFRESH},mappedBy="employee")
-	
+		CascadeType.REFRESH},mappedBy="employee")	
 	private List<Sale>sales;
 	
 	

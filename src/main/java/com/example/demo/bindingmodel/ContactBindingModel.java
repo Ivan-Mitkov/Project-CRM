@@ -1,5 +1,6 @@
 package com.example.demo.bindingmodel;
 
+import com.example.demo.entities.Account;
 
 public class ContactBindingModel {
 	
@@ -9,7 +10,14 @@ public class ContactBindingModel {
 	private String phone;
 	private String reportTo;
 	private boolean isContactable;
+	private Account account;
 	
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	public Long getId() {
 		return id;
 	}
