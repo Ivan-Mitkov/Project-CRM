@@ -24,12 +24,8 @@ public class Opportunity {
 	@Column(name="id")
 	private Long id;
 	
-	@OneToMany(fetch=FetchType.LAZY,cascade= 
-		{CascadeType.DETACH,
-		CascadeType.MERGE,
-		CascadeType.PERSIST,
-		CascadeType.REFRESH})
-	@JoinColumn(name="contact_id")//foreign key in Event class 
+	@OneToMany(fetch=FetchType.LAZY
+			,mappedBy="opportunity")	
 	private List<Contact> contact;
 	
 	@Column(name="status")

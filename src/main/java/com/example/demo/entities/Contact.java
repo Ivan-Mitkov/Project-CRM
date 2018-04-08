@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -43,18 +44,47 @@ public class Contact {
 			@JoinColumn(name="account_id")
 	private Account account;
 	
+	@ManyToOne(fetch=FetchType.LAZY,			
+			cascade= 
+				{CascadeType.DETACH,
+				CascadeType.MERGE,
+				CascadeType.PERSIST,
+				CascadeType.REFRESH})
+			@JoinColumn(name="opportunity_id")
+	private Opportunity opportunity;
+	
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Contact(String name, String email, String phone, String reportTo, boolean isContactable, Account account) {
+	
+
+	public Contact(String name, String email, String phone, String reportTo, boolean isContactable, Account account,
+			Opportunity opportunity) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.reportTo = reportTo;
 		this.isContactable = isContactable;
 		this.account = account;
+		this.opportunity = opportunity;
 	}
+
+
+
+
+
+	public Opportunity getOpportunity() {
+		return opportunity;
+	}
+
+
+
+	public void setOpportunity(Opportunity opportunity) {
+		this.opportunity = opportunity;
+	}
+
+
 
 	public Long getId() {
 		return id;
