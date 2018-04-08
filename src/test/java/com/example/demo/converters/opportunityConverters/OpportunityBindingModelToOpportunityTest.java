@@ -21,12 +21,13 @@ public class OpportunityBindingModelToOpportunityTest {
 
 	
 	OpportunityBindingModelToOpportunity converter;
-	
+	AccountBindingModelToAccount accountConverter;
+	ContactBindingModelToContact contactConverter;
 	@Before
 	public void setUp() throws Exception {
-        converter = new OpportunityBindingModelToOpportunity(
-                new AccountBindingModelToAccount(),
-                new ContactBindingModelToContact());
+        converter = new OpportunityBindingModelToOpportunity
+        		(accountConverter,contactConverter);
+                
                 
     }
 	@Test

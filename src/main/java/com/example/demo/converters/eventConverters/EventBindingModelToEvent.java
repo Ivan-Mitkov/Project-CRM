@@ -1,12 +1,12 @@
 package com.example.demo.converters.eventConverters;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
-import com.example.demo.bindingmodel.EmployeeBindingModel;
 import com.example.demo.bindingmodel.EventBindingModel;
-import com.example.demo.entities.Employee;
 import com.example.demo.entities.Event;
 
+@Component
 public class EventBindingModelToEvent implements 
 Converter<EventBindingModel, Event>{
 

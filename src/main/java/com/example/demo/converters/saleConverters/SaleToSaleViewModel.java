@@ -4,12 +4,8 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.bindingmodel.SaleBindingModel;
-import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
 import com.example.demo.converters.accountConverters.AccountToAccountViewModel;
-import com.example.demo.converters.employeeConverters.EmployeeToEmployeeBindingModel;
 import com.example.demo.converters.employeeConverters.EmployeeToEmployeeViewModel;
-import com.example.demo.converters.productConverters.ProductToProductBindingModel;
 import com.example.demo.converters.productConverters.ProductToProductViewModel;
 import com.example.demo.entities.Sale;
 import com.example.demo.viewmodel.SaleViewModel;
