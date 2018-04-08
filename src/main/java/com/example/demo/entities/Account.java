@@ -75,6 +75,18 @@ public class Account {
 			)
 	private List<Employee> workingForThisAccount;
 	
+	@ManyToMany(fetch=FetchType.LAZY,cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinTable(
+			name="account_manager",
+			joinColumns=@JoinColumn(name="account_id"),
+			inverseJoinColumns=@JoinColumn(name="manager_id")
+			)
+	private List<Manager> managersWorkingForThisAccount;
+	
 	@OneToMany(fetch=FetchType.LAZY,cascade= 
 		{CascadeType.DETACH,
 		CascadeType.MERGE,
@@ -89,9 +101,10 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	public Account(String name, String email, String phone, Adress adress, List<Contact> contacts, List<Event> events,
 			List<Task> tasks, List<Opportunity> opportunities, List<Employee> workingForThisAccount,
-			List<Sale> salesForThisAccount) {
+			List<Manager> managersWorkingForThisAccount, List<Sale> salesForThisAccount) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -101,10 +114,9 @@ public class Account {
 		this.tasks = tasks;
 		this.opportunities = opportunities;
 		this.workingForThisAccount = workingForThisAccount;
+		this.managersWorkingForThisAccount = managersWorkingForThisAccount;
 		this.salesForThisAccount = salesForThisAccount;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -173,6 +185,16 @@ public class Account {
 	public void setSalesForThisAccount(List<Sale> salesForThisAccount) {
 		this.salesForThisAccount = salesForThisAccount;
 	}
+
+	public List<Manager> getManagersWorkingForThisAccount() {
+		return managersWorkingForThisAccount;
+	}
+
+
+	public void setManagersWorkingForThisAccount(List<Manager> managersWorkingForThisAccount) {
+		this.managersWorkingForThisAccount = managersWorkingForThisAccount;
+	}
+
 
 	@Override
 	public String toString() {

@@ -55,8 +55,8 @@ public class Manager {
 		CascadeType.PERSIST,
 		CascadeType.REFRESH})
 	@JoinTable(
-			name="account_employee",
-			joinColumns=@JoinColumn(name="employee_id"),
+			name="account_manager",
+			joinColumns=@JoinColumn(name="manager_id"),
 			inverseJoinColumns=@JoinColumn(name="account_id")
 			)
 	private List<Account> accounts;
