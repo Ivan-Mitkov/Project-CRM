@@ -11,7 +11,7 @@ public class SaleViewModel {
 	private Double quontity;
 	private Double price;
 	private LocalDate closedAt;
-	
+	private AccountViewModel account;
 	public Long getId() {
 		return id;
 	}
@@ -58,6 +58,12 @@ public class SaleViewModel {
 	}
 	public void setManager(ManagerViewModel manager) {
 		this.manager = manager;
+	}
+	public AccountViewModel getAccount() {
+		return account;
+	}
+	public void setAccount(AccountViewModel account) {
+		this.account = account;
 	}
 
 }

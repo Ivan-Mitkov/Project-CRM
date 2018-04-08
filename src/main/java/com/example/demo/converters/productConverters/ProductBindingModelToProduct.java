@@ -13,7 +13,7 @@ Converter< ProductBindingModel,Product>{
 
 	@Nullable
 	@Override
-	public Product convert(ProductBindingModel source) {
+	public synchronized Product convert(ProductBindingModel source) {
 		if(source==null) {
 			return null;
 		}

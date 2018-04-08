@@ -8,12 +8,12 @@ import com.example.demo.entities.Product;
 import com.example.demo.viewmodel.ProductViewModel;
 
 @Component
-public class ProductToProductViewModel implements 
+public  class ProductToProductViewModel implements 
 Converter<Product, ProductViewModel>{
 
 	@Nullable
 	@Override
-	public ProductViewModel convert(Product source) {
+	public synchronized ProductViewModel convert(Product source) {
 		if(source==null) {
 			return null;
 		}

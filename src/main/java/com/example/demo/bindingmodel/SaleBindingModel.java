@@ -11,6 +11,7 @@ public class SaleBindingModel {
 	private Double quontity;
 	private Double price;
 	private LocalDate closedAt;
+	private AccountBindingModel account;
 	
 	public Long getId() {
 		return id;
@@ -48,6 +49,7 @@ public class SaleBindingModel {
 	public LocalDate getClosedAt() {
 		return closedAt;
 	}
+	//tova moge da dade problemi
 	public void setClosedAt(LocalDate closedAt) {
 		this.closedAt = closedAt;
 	}
@@ -56,6 +58,12 @@ public class SaleBindingModel {
 	}
 	public void setManager(ManagerBindingModel manager) {
 		this.manager = manager;
+	}
+	public AccountBindingModel getAccount() {
+		return account;
+	}
+	public void setAccount(AccountBindingModel account) {
+		this.account = account;
 	}
 
 	
