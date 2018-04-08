@@ -42,7 +42,7 @@ Converter< Opportunity,OpportunityBindingModel>{
 			opp.setStatus(source.getStatus().name());
 		}
 		if(opp.getAccount()!=null) {
-		opp.setAccount(accountConverter.convert(source.getAccount()));
+			opp.setAccount(accountConverter.convert(source.getAccount()));
 		}
 		if(source.getContact()!=null&&source.getContact().size()>0) {
 			source.getContact()
