@@ -34,8 +34,6 @@ public class OpportunityToOpportunityBindingModelTest {
 	public void setUp() throws Exception {
         converter = new OpportunityToOpportunityBindingModel
         		(accountConverter,contactConverter);
-                
-                
     }
 	@Test
     public void testNullObject() throws Exception {

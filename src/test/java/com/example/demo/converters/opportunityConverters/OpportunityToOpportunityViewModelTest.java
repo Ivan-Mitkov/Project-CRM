@@ -37,8 +37,6 @@ public class OpportunityToOpportunityViewModelTest {
 	public void setUp() throws Exception {
         converter = new OpportunityToOpportunityViewModel
         		(accountConverter,contactConverter);
-                
-                
     }
 	@Test
     public void testNullObject() throws Exception {
