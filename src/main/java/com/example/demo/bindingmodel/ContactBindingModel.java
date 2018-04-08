@@ -1,6 +1,7 @@
 package com.example.demo.bindingmodel;
 
 import com.example.demo.entities.Account;
+import com.example.demo.entities.Opportunity;
 
 public class ContactBindingModel {
 	
@@ -11,6 +12,7 @@ public class ContactBindingModel {
 	private String reportTo;
 	private boolean isContactable;
 	private Account account;
+	private Opportunity opportunity;
 	
 	public Account getAccount() {
 		return account;
@@ -53,6 +55,12 @@ public class ContactBindingModel {
 	}
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
+	}
+	public Opportunity getOpportunity() {
+		return opportunity;
+	}
+	public void setOpportunity(Opportunity opportunity) {
+		this.opportunity = opportunity;
 	}
 	
 }

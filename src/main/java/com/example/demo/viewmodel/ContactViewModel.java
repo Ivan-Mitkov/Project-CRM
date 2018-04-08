@@ -1,6 +1,7 @@
 package com.example.demo.viewmodel;
 
 import com.example.demo.entities.Account;
+import com.example.demo.entities.Opportunity;
 
 public class ContactViewModel {
 	
@@ -11,6 +12,7 @@ public class ContactViewModel {
 	private String reportTo;
 	private boolean isContactable;
 	private Account account;
+	private Opportunity opportunity;
 	
 	public Account getAccount() {
 		return account;
@@ -53,6 +55,12 @@ public class ContactViewModel {
 	}
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
+	}
+	public Opportunity getOpportunity() {
+		return opportunity;
+	}
+	public void setOpportunity(Opportunity opportunity) {
+		this.opportunity = opportunity;
 	}
 	
 	
