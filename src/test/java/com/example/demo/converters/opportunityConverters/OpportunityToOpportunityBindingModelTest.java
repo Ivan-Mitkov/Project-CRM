@@ -14,21 +14,25 @@ import com.example.demo.bindingmodel.AccountBindingModel;
 import com.example.demo.bindingmodel.ContactBindingModel;
 import com.example.demo.bindingmodel.OpportunityBindingModel;
 import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
+import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
 import com.example.demo.converters.contactConverters.ContactBindingModelToContact;
+import com.example.demo.converters.contactConverters.ContactToContactBindingModel;
+import com.example.demo.entities.Account;
+import com.example.demo.entities.Contact;
 import com.example.demo.entities.Opportunity;
 import com.example.demo.enums.Status;
 
-public class OpportunityBindingModelToOpportunityTest {
+public class OpportunityToOpportunityBindingModelTest {
 
 	
-	OpportunityBindingModelToOpportunity converter;
+	OpportunityToOpportunityBindingModel converter;
 
-	AccountBindingModelToAccount accountConverter;
+	AccountToAccountBindingModel accountConverter;
 	
-	ContactBindingModelToContact contactConverter;
+	ContactToContactBindingModel contactConverter;
 	@Before
 	public void setUp() throws Exception {
-        converter = new OpportunityBindingModelToOpportunity
+        converter = new OpportunityToOpportunityBindingModel
         		(accountConverter,contactConverter);
                 
                 
@@ -39,28 +43,26 @@ public class OpportunityBindingModelToOpportunityTest {
     }
 	@Test
     public void testEmptyObject() throws Exception {
-        assertNotNull(converter.convert(new OpportunityBindingModel()));
+        assertNotNull(converter.convert(new Opportunity()));
     }
 	@Test
     public void convert() throws Exception {
 		 //given
-		OpportunityBindingModel model=new OpportunityBindingModel();
-		model.setId(1l);
-		
+		Opportunity model=new Opportunity();
+		model.setId(1l);		
 		Status status =Status.CLOSED;
-		model.setStatus(status.name());
 		
-		List<ContactBindingModel> contacts=new ArrayList<>();
-		ContactBindingModel contact= new ContactBindingModel();
+		List<Contact> contacts=new ArrayList<>();
+		Contact contact= new Contact();
 		contact.setId(23L);
 		
-		AccountBindingModel account= new AccountBindingModel();
+		Account account= new Account();
 		account.setId(21L);
 		model.setAccount(account);
 		model.setContact(contacts);
 		
 		 //when
-		Opportunity opp=converter.convert(model);
+		OpportunityBindingModel opp=converter.convert(model);
 		
 		//then
 		assertNotNull(opp);

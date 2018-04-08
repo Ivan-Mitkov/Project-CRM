@@ -29,13 +29,21 @@ Converter< Opportunity,OpportunityBindingModel>{
 		if(source==null) {
 			return null;
 		}
-		Status status = null;
+		Status status = source.getStatus();
 		
 		final OpportunityBindingModel opp=new OpportunityBindingModel();
 		opp.setId(source.getId());
-		opp.setStatus(source.getStatus().getName());
-		opp.setAccount(accountConverter.convert(source.getAccount()));
 		
+		if(source.getStatus()==null) {
+			Status statusEnum =Status.CLOSED;
+			opp.setStatus(statusEnum.name());
+		}
+		else {
+			opp.setStatus(source.getStatus().name());
+		}
+		if(opp.getAccount()!=null) {
+		opp.setAccount(accountConverter.convert(source.getAccount()));
+		}
 		if(source.getContact()!=null&&source.getContact().size()>0) {
 			source.getContact()
 			.forEach(contact->opp.getContact()

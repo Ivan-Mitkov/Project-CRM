@@ -14,7 +14,9 @@ import com.example.demo.enums.Status;
 public class OpportunityBindingModelToOpportunity implements 
 Converter<OpportunityBindingModel, Opportunity>{
 
+	//@Autowired
 	private final AccountBindingModelToAccount accountConverter;
+	//@Autowired
 	private final ContactBindingModelToContact contactConverter;
 	
 	
@@ -31,26 +33,32 @@ Converter<OpportunityBindingModel, Opportunity>{
 		if(source==null) {
 			return null;
 		}
-		
-		String curStatus=source.getStatus();
+		String status=source.getStatus();
 		
 		final Opportunity opp=new Opportunity();
 		opp.setId(source.getId());
-		opp.setStatus(Enum.valueOf(Status.class, curStatus));
+		 
+		if(source.getStatus()==null) {
+			Status statusEnum =Status.CLOSED;
+			opp.setStatus(statusEnum);
+		}
+		else {
+			opp.setStatus(Status.valueOf(status));
+		}
+		
+		
 		
 		if(opp.getAccount()!=null) {
 			opp.setAccount(accountConverter.convert(source.getAccount()));
 
 		}
-	
 		
 		if(source.getContact()!=null&&source.getContact().size()>0) {
 			source.getContact()
 			.forEach(contact->opp.getContact()
 					.add(contactConverter.convert(contact)));
 		}
-		
-		
+
 		
 		return opp;
 	}

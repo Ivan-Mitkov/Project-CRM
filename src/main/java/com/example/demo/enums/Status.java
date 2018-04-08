@@ -8,11 +8,6 @@ public enum Status {
 		this.name = name;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-
 	
 	
 }

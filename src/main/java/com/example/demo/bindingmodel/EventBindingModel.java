@@ -2,7 +2,7 @@ package com.example.demo.bindingmodel;
 
 import java.util.List;
 
-
+//must add account
 public class EventBindingModel {
 
 	private Long id;	
