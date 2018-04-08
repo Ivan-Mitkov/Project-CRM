@@ -2,14 +2,12 @@ package com.example.demo.bindingmodel;
 
 import java.util.List;
 
-import com.example.demo.entities.Account;
-
 public class OpportunityBindingModel {
 	
 	private Long id;
 	private List<ContactBindingModel> contact;
 	private String status;
-	private Account account;
+	private AccountBindingModel account;
 
 	public Long getId() {
 		return id;
@@ -32,11 +30,11 @@ public class OpportunityBindingModel {
 	public void setContact(List<ContactBindingModel> contact) {
 		this.contact = contact;
 	}
-	public Account getAccount() {
+	public AccountBindingModel getAccount() {
 		return account;
 	}
-	public void setAccount(Account account) {
+	public void setAccount(AccountBindingModel account) {
 		this.account = account;
 	}
-
+	
 }

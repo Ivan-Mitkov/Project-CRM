@@ -10,6 +10,8 @@ public class TaskViewModel {
 	
 	private  String description;
 	
+	private AccountViewModel account;
+	
 	public Long getId() {
 		return id;
 	}
@@ -27,6 +29,12 @@ public class TaskViewModel {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public AccountViewModel getAccount() {
+		return account;
+	}
+	public void setAccount(AccountViewModel account) {
+		this.account = account;
 	}
 	
 }

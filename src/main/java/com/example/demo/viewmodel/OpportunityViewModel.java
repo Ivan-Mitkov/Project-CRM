@@ -2,14 +2,12 @@ package com.example.demo.viewmodel;
 
 import java.util.List;
 
-import com.example.demo.entities.Account;
-
 public class OpportunityViewModel {
 	
 	private Long id;
 	private List<ContactViewModel> contact;
 	private String status;
-	private Account account;
+	private AccountViewModel account;
 	
 	public Long getId() {
 		return id;
@@ -32,11 +30,12 @@ public class OpportunityViewModel {
 	public void setContact(List<ContactViewModel> contact) {
 		this.contact = contact;
 	}
-	public Account getAccount() {
+	public AccountViewModel getAccount() {
 		return account;
 	}
-	public void setAccount(Account account) {
+	public void setAccount(AccountViewModel account) {
 		this.account = account;
 	}
+	
 
 }

@@ -21,6 +21,8 @@ public class AccountBindingModel {
 	
 	private List<EmployeeBindingModel> workingForThisAccount;	
 	
+	private List<ManagerBindingModel> managersWorkingForThisAccount;
+
 	private List<SaleBindingModel> salesForThisAccount;	
 
 	public String getName() {
@@ -90,6 +92,12 @@ public class AccountBindingModel {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	public List<ManagerBindingModel> getManagersWorkingForThisAccount() {
+		return managersWorkingForThisAccount;
+	}
+	public void setManagersWorkingForThisAccount(List<ManagerBindingModel> managersWorkingForThisAccount) {
+		this.managersWorkingForThisAccount = managersWorkingForThisAccount;
+	}
+	
 	
 }

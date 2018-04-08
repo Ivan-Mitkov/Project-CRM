@@ -25,6 +25,7 @@ public class AccountViewModel {
 	
 	private List<EmployeeViewModel> workingForThisAccount;
 	
+	private List<ManagerViewModel> managersWorkingForThisAccount;
 	
 	private List<SaleViewModel> salesForThisAccount;
 	
@@ -95,6 +96,12 @@ public class AccountViewModel {
 	}
 	public void setSalesForThisAccount(List<SaleViewModel> salesForThisAccount) {
 		this.salesForThisAccount = salesForThisAccount;
+	}
+	public List<ManagerViewModel> getManagersWorkingForThisAccount() {
+		return managersWorkingForThisAccount;
+	}
+	public void setManagersWorkingForThisAccount(List<ManagerViewModel> managersWorkingForThisAccount) {
+		this.managersWorkingForThisAccount = managersWorkingForThisAccount;
 	}
 
 }

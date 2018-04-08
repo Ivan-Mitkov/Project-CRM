@@ -10,7 +10,7 @@ public class EmployeeViewModel {
 	private String email;	
 	private String phone;	
 	private boolean isCurrentEmployee;
-	
+	private ManagerViewModel manager;
 	private List<TaskViewModel> tasks;
 		
 	private List<AccountViewModel> accounts;
@@ -80,6 +80,12 @@ public class EmployeeViewModel {
 
 	public void setSales(List<SaleViewModel> sales) {
 		this.sales = sales;
+	}
+	public ManagerViewModel getManager() {
+		return manager;
+	}
+	public void setManager(ManagerViewModel manager) {
+		this.manager = manager;
 	}
 
 	

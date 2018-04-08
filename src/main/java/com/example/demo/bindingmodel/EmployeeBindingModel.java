@@ -9,7 +9,7 @@ public class EmployeeBindingModel {
 	private String name;
 	private String email;	
 	private String phone;	
-	private boolean isManager;	
+	private ManagerBindingModel manager;
 	private boolean isCurrentEmployee;
 	
 	private List<TaskBindingModel> tasks;
@@ -46,12 +46,7 @@ public class EmployeeBindingModel {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public boolean isManager() {
-		return isManager;
-	}
-	public void setManager(boolean isManager) {
-		this.isManager = isManager;
-	}
+	
 	public boolean isCurrentEmployee() {
 		return isCurrentEmployee;
 	}
@@ -94,6 +89,12 @@ public class EmployeeBindingModel {
 
 	public void setSales(List<SaleBindingModel> sales) {
 		this.sales = sales;
+	}
+	public ManagerBindingModel getManager() {
+		return manager;
+	}
+	public void setManager(ManagerBindingModel manager) {
+		this.manager = manager;
 	}
 
 }

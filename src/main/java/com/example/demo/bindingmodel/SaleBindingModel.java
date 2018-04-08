@@ -6,6 +6,7 @@ public class SaleBindingModel {
 	
 	private Long id;
 	private EmployeeBindingModel employee;
+	private ManagerBindingModel manager;
 	private ProductBindingModel product;
 	private Double quontity;
 	private Double price;
@@ -49,6 +50,12 @@ public class SaleBindingModel {
 	}
 	public void setClosedAt(LocalDate closedAt) {
 		this.closedAt = closedAt;
+	}
+	public ManagerBindingModel getManager() {
+		return manager;
+	}
+	public void setManager(ManagerBindingModel manager) {
+		this.manager = manager;
 	}
 
 	

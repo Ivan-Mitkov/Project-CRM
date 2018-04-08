@@ -6,6 +6,7 @@ public class SaleViewModel {
 	
 	private Long id;
 	private EmployeeViewModel employee;
+	private ManagerViewModel manager;
 	private ProductViewModel product;
 	private Double quontity;
 	private Double price;
@@ -51,6 +52,12 @@ public class SaleViewModel {
 	}
 	public void setClosedAt(LocalDate closedAt) {
 		this.closedAt = closedAt;
+	}
+	public ManagerViewModel getManager() {
+		return manager;
+	}
+	public void setManager(ManagerViewModel manager) {
+		this.manager = manager;
 	}
 
 }

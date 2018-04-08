@@ -1,8 +1,5 @@
 package com.example.demo.viewmodel;
 
-import com.example.demo.entities.Account;
-import com.example.demo.entities.Opportunity;
-
 public class ContactViewModel {
 	
 	private Long id;

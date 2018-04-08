@@ -4,7 +4,6 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.bindingmodel.ProductBindingModel;
 import com.example.demo.entities.Product;
 import com.example.demo.viewmodel.ProductViewModel;
 
