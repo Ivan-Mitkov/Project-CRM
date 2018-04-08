@@ -1,4 +1,4 @@
-package com.example.demo.coverters.saleConverters;
+package com.example.demo.converters.saleConverters;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;

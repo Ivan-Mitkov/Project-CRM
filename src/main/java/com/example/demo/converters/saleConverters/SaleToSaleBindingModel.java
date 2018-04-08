@@ -1,4 +1,4 @@
-package com.example.demo.coverters.saleConverters;
+package com.example.demo.converters.saleConverters;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
@@ -6,38 +6,37 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.bindingmodel.SaleBindingModel;
 import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
-import com.example.demo.converters.accountConverters.AccountToAccountViewModel;
 import com.example.demo.converters.employeeConverters.EmployeeToEmployeeBindingModel;
-import com.example.demo.converters.employeeConverters.EmployeeToEmployeeViewModel;
 import com.example.demo.converters.productConverters.ProductToProductBindingModel;
-import com.example.demo.converters.productConverters.ProductToProductViewModel;
 import com.example.demo.entities.Sale;
-import com.example.demo.viewmodel.SaleViewModel;
 
 @Component
-public class SaleToSaleViewModel implements 
-Converter< Sale,SaleViewModel>{
+public class SaleToSaleBindingModel implements 
+Converter< Sale,SaleBindingModel>{
 
-	private final ProductToProductViewModel productConveter;
-	private final AccountToAccountViewModel accountConverter;
-	private final EmployeeToEmployeeViewModel employeeConverter;
+	private final ProductToProductBindingModel productConveter;
+	private final AccountToAccountBindingModel accountConverter;
+	private final EmployeeToEmployeeBindingModel employeeConverter;
 	
-	public SaleToSaleViewModel(ProductToProductViewModel productConveter, AccountToAccountViewModel accountConverter,
-			EmployeeToEmployeeViewModel employeeConverter) {
+	
+
+	public SaleToSaleBindingModel(ProductToProductBindingModel productConveter,
+			AccountToAccountBindingModel accountConverter, EmployeeToEmployeeBindingModel employeeConverter) {
 		this.productConveter = productConveter;
 		this.accountConverter = accountConverter;
 		this.employeeConverter = employeeConverter;
 	}
 
 
+
 	@Nullable
 	@Override
-	public synchronized SaleViewModel convert(Sale source) {
+	public synchronized SaleBindingModel convert(Sale source) {
 		if(source==null) {
 			return null;
 		}
 
-		final SaleViewModel sale=new SaleViewModel();
+		final SaleBindingModel sale=new SaleBindingModel();
 		sale.setId(source.getId());
 		sale.setProduct(productConveter.convert(source.getProduct()));
 		sale.setPrice(source.getPrice());
