@@ -1,8 +1,9 @@
-package com.example.demo.converters.opportunityConverters;
+package com.example.demo.converters.saleConverters;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,23 +14,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.bindingmodel.AccountBindingModel;
 import com.example.demo.bindingmodel.ContactBindingModel;
 import com.example.demo.bindingmodel.OpportunityBindingModel;
+import com.example.demo.bindingmodel.SaleBindingModel;
 import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
 import com.example.demo.converters.contactConverters.ContactBindingModelToContact;
+import com.example.demo.converters.employeeConverters.EmployeeBindingModelToEmployee;
+import com.example.demo.converters.productConverters.ProductBindingModelToProduct;
+import com.example.demo.entities.Account;
+import com.example.demo.entities.Contact;
 import com.example.demo.entities.Opportunity;
+import com.example.demo.entities.Sale;
 import com.example.demo.enums.Status;
 
-public class OpportunityBindingModelToOpportunityTest {
+public class SaleBindingModelToSaleTest {
 
-	
-	OpportunityBindingModelToOpportunity converter;
+	SaleBindingModelToSale converter;
+	ProductBindingModelToProduct productConverter;
 
 	AccountBindingModelToAccount accountConverter;
 	
-	ContactBindingModelToContact contactConverter;
+	EmployeeBindingModelToEmployee employeeConverter;
+	
 	@Before
 	public void setUp() throws Exception {
-        converter = new OpportunityBindingModelToOpportunity
-        		(accountConverter,contactConverter);
+        converter = new SaleBindingModelToSale
+        		(productConverter,accountConverter,employeeConverter);
     }
 	@Test
     public void testNullObject() throws Exception {
@@ -37,28 +45,22 @@ public class OpportunityBindingModelToOpportunityTest {
     }
 	@Test
     public void testEmptyObject() throws Exception {
-        assertNotNull(converter.convert(new OpportunityBindingModel()));
+        assertNotNull(converter.convert(new SaleBindingModel()));
     }
 	@Test
     public void convert() throws Exception {
 		 //given
-		OpportunityBindingModel model=new OpportunityBindingModel();
+		SaleBindingModel model=new SaleBindingModel();
 		model.setId(1l);
-		
-		Status status =Status.CLOSED;
-		model.setStatus(status.name());
-		
-		List<ContactBindingModel> contacts=new ArrayList<>();
-		ContactBindingModel contact= new ContactBindingModel();
-		contact.setId(23L);
+		model.setClosedAt(LocalDate.now());
 		
 		AccountBindingModel account= new AccountBindingModel();
-		//account.setId(21L);
-		//model.setAccount(account);
-		model.setContact(contacts);
+		account.setId(21L);
+		model.setAccount(account);
+		
 		
 		 //when
-		Opportunity opp=converter.convert(model);
+		Sale opp=converter.convert(model);
 		
 		//then
 		assertNotNull(opp);

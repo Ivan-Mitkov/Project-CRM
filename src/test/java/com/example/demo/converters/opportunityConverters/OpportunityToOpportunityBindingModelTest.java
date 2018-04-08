@@ -54,9 +54,9 @@ public class OpportunityToOpportunityBindingModelTest {
 		Contact contact= new Contact();
 		contact.setId(23L);
 		
-		Account account= new Account();
-		account.setId(21L);
-		model.setAccount(account);
+//		Account account= new Account();
+//		account.setId(21L);
+//		model.setAccount(account);
 		model.setContact(contacts);
 		
 		 //when

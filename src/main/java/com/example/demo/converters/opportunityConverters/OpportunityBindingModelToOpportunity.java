@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.example.demo.bindingmodel.OpportunityBindingModel;
 import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
 import com.example.demo.converters.contactConverters.ContactBindingModelToContact;
+import com.example.demo.entities.Account;
 import com.example.demo.entities.Opportunity;
 import com.example.demo.enums.Status;
 
@@ -46,11 +47,14 @@ Converter<OpportunityBindingModel, Opportunity>{
 			opp.setStatus(Status.valueOf(status));
 		}
 		
-		
-		
-		if(opp.getAccount()!=null) {
+		if(source.getAccount()!=null) {
 			opp.setAccount(accountConverter.convert(source.getAccount()));
 
+		}
+		else {
+			Account account = new Account();
+			opp.setAccount(account);
+			
 		}
 		
 		if(source.getContact()!=null&&source.getContact().size()>0) {

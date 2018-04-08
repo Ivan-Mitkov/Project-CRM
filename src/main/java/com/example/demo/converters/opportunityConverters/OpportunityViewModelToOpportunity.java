@@ -50,7 +50,7 @@ Converter<OpportunityViewModel, Opportunity>{
 			
 			
 			
-			if(opp.getAccount()!=null) {
+			if(source.getAccount()!=null) {
 				opp.setAccount(accountConverter.convert(source.getAccount()));
 
 			}

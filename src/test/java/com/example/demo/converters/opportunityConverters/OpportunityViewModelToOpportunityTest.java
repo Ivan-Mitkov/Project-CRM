@@ -57,9 +57,9 @@ public class OpportunityViewModelToOpportunityTest {
 		ContactViewModel contact= new ContactViewModel();
 		contact.setId(23L);
 		
-		AccountViewModel account= new AccountViewModel();
-		account.setId(21L);
-		model.setAccount(account);
+//		AccountViewModel account= new AccountViewModel();
+//		account.setId(21L);
+//		model.setAccount(account);
 		model.setContact(contacts);
 		
 		 //when

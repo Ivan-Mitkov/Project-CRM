@@ -42,6 +42,10 @@ Converter< SaleBindingModel,Sale>{
 		sale.setPrice(source.getPrice());
 		sale.setClosedAt(source.getClosedAt());
 		sale.setQuontity(source.getQuontity());
+		if(sale.getAccount()!=null) {
+			sale.setAccount(accountConverter.convert(source.getAccount()));
+
+		}
 		sale.setAccount(accountConverter.convert(source.getAccount()));
 		sale.setEmployee(employeeConverter.convert(source.getEmployee()));
 		

@@ -43,7 +43,7 @@ Converter< Opportunity,OpportunityViewModel>{
 		else {
 			opp.setStatus(source.getStatus().name());
 		}
-		if(opp.getAccount()!=null) {
+		if(source.getAccount()!=null) {
 			opp.setAccount(accountConverter.convert(source.getAccount()));
 		}
 		if(source.getContact()!=null&&source.getContact().size()>0) {
