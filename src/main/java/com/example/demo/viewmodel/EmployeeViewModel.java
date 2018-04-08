@@ -9,13 +9,10 @@ public class EmployeeViewModel {
 	private String name;
 	private String email;	
 	private String phone;	
-	private boolean isManager;	
 	private boolean isCurrentEmployee;
 	
 	private List<TaskViewModel> tasks;
-	
-	private List<EmployeeViewModel> employees;
-	
+		
 	private List<AccountViewModel> accounts;
 	
 	private List<EventViewModel>events;
@@ -46,12 +43,7 @@ public class EmployeeViewModel {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public boolean isManager() {
-		return isManager;
-	}
-	public void setManager(boolean isManager) {
-		this.isManager = isManager;
-	}
+	
 	public boolean isCurrentEmployee() {
 		return isCurrentEmployee;
 	}
@@ -64,13 +56,7 @@ public class EmployeeViewModel {
 	public void setTasks(List<TaskViewModel> tasks) {
 		this.tasks = tasks;
 	}
-	public List<EmployeeViewModel> getEmployees() {
-		return employees;
-	}
-	public void setEmployees(List<EmployeeViewModel> employees) {
-		this.employees = employees;
-	}
-	
+		
 	public List<AccountViewModel> getAccounts() {
 		return accounts;
 	}

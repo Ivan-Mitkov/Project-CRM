@@ -29,6 +29,14 @@ public class Sale {
 	@JoinColumn(name="employee_id")
 	private Employee employee;
 	
+	@ManyToOne(cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinColumn(name="manager_id")
+	private Manager manager;
+	
 	@OneToOne(fetch=FetchType.LAZY,cascade= 
 		{CascadeType.DETACH,
 		CascadeType.MERGE,

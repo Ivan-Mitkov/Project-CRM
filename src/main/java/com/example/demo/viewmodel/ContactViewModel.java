@@ -11,15 +11,10 @@ public class ContactViewModel {
 	private String phone;
 	private String reportTo;
 	private boolean isContactable;
-	private Account account;
-	private Opportunity opportunity;
+	private AccountViewModel account;
+	private OpportunityViewModel opportunity;
 	
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,10 +51,16 @@ public class ContactViewModel {
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
 	}
-	public Opportunity getOpportunity() {
+	public AccountViewModel getAccount() {
+		return account;
+	}
+	public void setAccount(AccountViewModel account) {
+		this.account = account;
+	}
+	public OpportunityViewModel getOpportunity() {
 		return opportunity;
 	}
-	public void setOpportunity(Opportunity opportunity) {
+	public void setOpportunity(OpportunityViewModel opportunity) {
 		this.opportunity = opportunity;
 	}
 	

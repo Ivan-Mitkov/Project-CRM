@@ -11,7 +11,7 @@ public class EventViewModel {
 	private String description;	
 	private String dateAndTime;	
 	private List<EmployeeViewModel> events;
-	
+	private List<ManagerViewModel> managersAttending;
 	public Long getId() {
 		return id;
 	}
@@ -49,6 +49,12 @@ public class EventViewModel {
 
 	public void setEvents(List<EmployeeViewModel> events) {
 		this.events = events;
+	}
+	public List<ManagerViewModel> getManagersAttending() {
+		return managersAttending;
+	}
+	public void setManagersAttending(List<ManagerViewModel> managersAttending) {
+		this.managersAttending = managersAttending;
 	}
 
 	

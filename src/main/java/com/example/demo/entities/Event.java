@@ -63,6 +63,17 @@ public class Event {
 			)
 	private List<Employee> events;
 	
+	@ManyToMany(fetch=FetchType.LAZY,cascade= 
+		{CascadeType.DETACH,
+		CascadeType.MERGE,
+		CascadeType.PERSIST,
+		CascadeType.REFRESH})
+	@JoinTable(
+			name="event_manager",
+			joinColumns=@JoinColumn(name="event_id"),
+			inverseJoinColumns=@JoinColumn(name="manager_id")
+			)
+	private List<Employee> managers;
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
