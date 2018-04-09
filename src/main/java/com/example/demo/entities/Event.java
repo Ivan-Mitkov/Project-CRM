@@ -61,7 +61,7 @@ public class Event {
 			joinColumns=@JoinColumn(name="event_id"),
 			inverseJoinColumns=@JoinColumn(name="employee_id")
 			)
-	private List<Employee> events;
+	private List<Employee> employee;
 	
 	@ManyToMany(fetch=FetchType.LAZY,cascade= 
 		{CascadeType.DETACH,
@@ -73,21 +73,22 @@ public class Event {
 			joinColumns=@JoinColumn(name="event_id"),
 			inverseJoinColumns=@JoinColumn(name="manager_id")
 			)
-	private List<Employee> managers;
+	private List<Manager> manager;
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+
 
 	public Event(Adress location, String subject, String description, LocalDateTime dateAndTime, Account account,
-			List<Employee> events) {
+			List<Employee> employee, List<Manager> manager) {
 		this.location = location;
 		this.subject = subject;
 		this.description = description;
 		this.dateAndTime = dateAndTime;
 		this.account = account;
-		this.events = events;
+		this.employee = employee;
+		this.manager = manager;
 	}
 
 
@@ -123,14 +124,32 @@ public class Event {
 		this.dateAndTime = dateAndTime;
 	}
 	
-	public List<Employee> getEvents() {
-		return events;
+	
+	
+	public List<Employee> getEmployee() {
+		return employee;
 	}
 
-	public void setEvents(List<Employee> events) {
-		this.events = events;
+
+
+	public void setEmployee(List<Employee> employee) {
+		this.employee = employee;
 	}
-	
+
+
+
+	public List<Manager> getManager() {
+		return manager;
+	}
+
+
+
+	public void setManager(List<Manager> manager) {
+		this.manager = manager;
+	}
+
+
+
 	public Account getAccount() {
 		return account;
 	}
@@ -139,13 +158,6 @@ public class Event {
 		this.account = account;
 	}
 
-	@Override
-	public String toString() {
-		return "Event [id=" + id + ", location=" + location + ", subject=" + subject + ", description=" + description
-				+ ", dateAndTime=" + dateAndTime + ", toAttend=" + events + "]";
-	}
-	
-	
-	
+		
 	
 }

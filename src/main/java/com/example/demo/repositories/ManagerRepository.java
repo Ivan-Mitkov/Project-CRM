@@ -10,6 +10,6 @@ public interface ManagerRepository extends JpaRepository<Manager, Long> {
 
 	Optional<Manager> findManagerByName(String name);
 
-	Optional<Manager> findManagerByByIdNumber(String idNumber);
+	Optional<Manager> findManagerByIdNumber(String idNumber);
 
 }

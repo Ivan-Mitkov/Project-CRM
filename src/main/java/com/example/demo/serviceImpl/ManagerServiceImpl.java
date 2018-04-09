@@ -3,11 +3,12 @@ package com.example.demo.serviceImpl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Manager;
 import com.example.demo.repositories.ManagerRepository;
 import com.example.demo.services.ManagerService;
-
+@Service
 public class ManagerServiceImpl implements ManagerService {
 
 	@Autowired
@@ -23,7 +24,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	public Optional<Manager> findManagerByIdNumber(String idNumber) {
-		Optional<Manager> opManager=repository.findManagerByByIdNumber(idNumber);
+		Optional<Manager> opManager=repository.findManagerByIdNumber(idNumber);
 		return opManager;
 	}
 
