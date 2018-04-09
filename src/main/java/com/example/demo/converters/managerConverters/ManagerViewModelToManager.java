@@ -12,8 +12,16 @@ Converter<ManagerViewModel,Manager>{
 
 	@Override
 	public Manager convert(ManagerViewModel source) {
-		// TODO Auto-generated method stub
-		return null;
+		if(source==null) {
+			return null;
+		}
+		Manager em=new Manager();
+		em.setIdNumber(source.getIdNumber());
+		em.setName(source.getName());
+		em.setPhone(source.getPhone());
+		em.setEmail(source.getEmail());
+		em.setCurrentEmployee(source.isCurrentEmployee());
+		return em;
 	}
 
 }

@@ -12,8 +12,16 @@ Converter<EmployeeViewModel,Employee>{
 
 	@Override
 	public Employee convert(EmployeeViewModel source) {
-		// TODO Auto-generated method stub
-		return null;
+		if(source==null) {
+			return null;
+		}
+		Employee em=new Employee();
+		em.setIdNumber(source.getIdNumber());
+		em.setName(source.getName());
+		em.setPhone(source.getPhone());
+		em.setEmail(source.getEmail());
+		em.setCurrentEmployee(source.isCurrentEmployee());
+		return em;
 	}
 
 }

@@ -22,4 +22,9 @@ public class ManagerServiceImpl implements ManagerService {
 		return opManager;
 	}
 
+	public Optional<Manager> findManagerByIdNumber(String idNumber) {
+		Optional<Manager> opManager=repository.findManagerByByIdNumber(idNumber);
+		return opManager;
+	}
+
 }

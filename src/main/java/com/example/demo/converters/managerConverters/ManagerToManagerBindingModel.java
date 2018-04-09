@@ -12,8 +12,16 @@ Converter<Manager, ManagerBindingModel>{
 
 	@Override
 	public ManagerBindingModel convert(Manager source) {
-		// TODO Auto-generated method stub
-		return null;
+		if(source==null) {
+			return null;
+		}
+		ManagerBindingModel em=new ManagerBindingModel();
+		em.setIdNumber(source.getIdNumber());
+		em.setName(source.getName());
+		em.setPhone(source.getPhone());
+		em.setEmail(source.getEmail());
+		em.setCurrentEmployee(source.isCurrentEmployee());
+		return em;
 	}
 
 }
