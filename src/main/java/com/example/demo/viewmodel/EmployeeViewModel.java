@@ -11,13 +11,7 @@ public class EmployeeViewModel {
 	private String phone;	
 	private boolean isCurrentEmployee;
 	private ManagerViewModel manager;
-	private List<TaskViewModel> tasks;
-		
-	private List<AccountViewModel> accounts;
 	
-	private List<EventViewModel>events;
-	
-	private List<SaleViewModel>sales;
 	
 	public Long getId() {
 		return id;
@@ -50,37 +44,7 @@ public class EmployeeViewModel {
 	public void setCurrentEmployee(boolean isCurrentEmployee) {
 		this.isCurrentEmployee = isCurrentEmployee;
 	}
-	public List<TaskViewModel> getTasks() {
-		return tasks;
-	}
-	public void setTasks(List<TaskViewModel> tasks) {
-		this.tasks = tasks;
-	}
-		
-	public List<AccountViewModel> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(List<AccountViewModel> accounts) {
-		this.accounts = accounts;
-	}
 	
-
-	public List<EventViewModel> getEvents() {
-		return events;
-	}
-
-	public void setEvents(List<EventViewModel> events) {
-		this.events = events;
-	}
-
-	public List<SaleViewModel> getSales() {
-		return sales;
-	}
-
-	public void setSales(List<SaleViewModel> sales) {
-		this.sales = sales;
-	}
 	public ManagerViewModel getManager() {
 		return manager;
 	}

@@ -8,8 +8,7 @@ public class ContactBindingModel {
 	private String phone;
 	private String reportTo;
 	private boolean isContactable;
-	private AccountBindingModel account;
-	private OpportunityBindingModel opportunity;
+	
 	
 	
 	public Long getId() {
@@ -48,17 +47,6 @@ public class ContactBindingModel {
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
 	}
-	public AccountBindingModel getAccount() {
-		return account;
-	}
-	public void setAccount(AccountBindingModel account) {
-		this.account = account;
-	}
-	public OpportunityBindingModel getOpportunity() {
-		return opportunity;
-	}
-	public void setOpportunity(OpportunityBindingModel opportunity) {
-		this.opportunity = opportunity;
-	}
+	
 	
 }

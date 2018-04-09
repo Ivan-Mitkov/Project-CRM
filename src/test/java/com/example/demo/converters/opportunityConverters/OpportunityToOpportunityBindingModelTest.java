@@ -17,6 +17,7 @@ import com.example.demo.converters.accountConverters.AccountBindingModelToAccoun
 import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
 import com.example.demo.converters.contactConverters.ContactBindingModelToContact;
 import com.example.demo.converters.contactConverters.ContactToContactBindingModel;
+import com.example.demo.converters.productConverters.ProductBindingModelToProduct;
 import com.example.demo.entities.Account;
 import com.example.demo.entities.Contact;
 import com.example.demo.entities.Opportunity;
@@ -27,13 +28,10 @@ public class OpportunityToOpportunityBindingModelTest {
 	
 	OpportunityToOpportunityBindingModel converter;
 
-	AccountToAccountBindingModel accountConverter;
-	
-	ContactToContactBindingModel contactConverter;
 	@Before
-	public void setUp() throws Exception {
-        converter = new OpportunityToOpportunityBindingModel
-        		(accountConverter,contactConverter);
+    public void setUp() throws Exception {
+        converter = new OpportunityToOpportunityBindingModel();
+
     }
 	@Test
     public void testNullObject() throws Exception {
@@ -43,21 +41,14 @@ public class OpportunityToOpportunityBindingModelTest {
     public void testEmptyObject() throws Exception {
         assertNotNull(converter.convert(new Opportunity()));
     }
+	
 	@Test
     public void convert() throws Exception {
 		 //given
 		Opportunity model=new Opportunity();
 		model.setId(1l);		
-		Status status =Status.CLOSED;
-		
-		List<Contact> contacts=new ArrayList<>();
-		Contact contact= new Contact();
-		contact.setId(23L);
-		
-//		Account account= new Account();
-//		account.setId(21L);
-//		model.setAccount(account);
-		model.setContact(contacts);
+		model.setStatus("Closed");		
+		model.setDescription("description");
 		
 		 //when
 		OpportunityBindingModel opp=converter.convert(model);

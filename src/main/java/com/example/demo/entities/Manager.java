@@ -67,7 +67,7 @@ public class Manager {
 		CascadeType.PERSIST,
 		CascadeType.REFRESH})
 	@JoinTable(
-			name="event_employee",
+			name="event_manager",
 			joinColumns=@JoinColumn(name="manager_id"),
 			inverseJoinColumns=@JoinColumn(name="event_id")
 			)

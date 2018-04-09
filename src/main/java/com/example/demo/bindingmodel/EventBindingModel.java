@@ -10,8 +10,7 @@ public class EventBindingModel {
 	private String subject;	
 	private String description;	
 	private String dateAndTime;	
-	private List<EmployeeBindingModel> events;
-	private List<ManagerBindingModel> managersAttendingEvents;
+	
 
 	public Long getId() {
 		return id;
@@ -44,19 +43,6 @@ public class EventBindingModel {
 		this.dateAndTime = dateAndTime;
 	}
 	
-	public List<EmployeeBindingModel> getEvents() {
-		return events;
-	}
-
-	public void setEvents(List<EmployeeBindingModel> events) {
-		this.events = events;
-	}
-	public List<ManagerBindingModel> getManagersAttendingEvents() {
-		return managersAttendingEvents;
-	}
-	public void setManagersAttendingEvents(List<ManagerBindingModel> managersAttendingEvents) {
-		this.managersAttendingEvents = managersAttendingEvents;
-	}
-
+	
 	
 }

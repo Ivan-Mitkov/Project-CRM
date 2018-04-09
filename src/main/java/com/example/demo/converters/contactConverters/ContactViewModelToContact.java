@@ -32,13 +32,11 @@ Converter<ContactViewModel, Contact>{
 		}
 		final Contact contact= new Contact();
 		contact.setId(source.getId());
-		contact.setAccount(accountConverter.convert(source.getAccount()));
 		contact.setContactable(source.isContactable());
 		contact.setEmail(source.getEmail());
 		contact.setName(source.getName());
 		contact.setPhone(source.getPhone());
 		contact.setReportTo(source.getReportTo());
-		contact.setOpportunity(opportunityConverter.convert(source.getOpportunity()));
 		
 		return contact;
 	}

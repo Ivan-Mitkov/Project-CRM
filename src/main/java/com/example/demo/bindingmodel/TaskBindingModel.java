@@ -10,14 +10,7 @@ public class TaskBindingModel {
 	
 	private  String description;
 	
-	private AccountBindingModel account;
 	
-	public AccountBindingModel getAccount() {
-		return account;
-	}
-	public void setAccount(AccountBindingModel account) {
-		this.account = account;
-	}
 	public Long getId() {
 		return id;
 	}

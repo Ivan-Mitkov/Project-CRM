@@ -13,17 +13,6 @@ import com.example.demo.viewmodel.ContactViewModel;
 public class ContactToContactViewModel implements 
 Converter<Contact,ContactViewModel>{
 
-	private final AccountToAccountViewModel accountConverter;
-	private final OpportunityToOpportunityViewModel opportunityConverter;
-	
-	
-	
-	public ContactToContactViewModel(AccountToAccountViewModel accountConverter,
-			OpportunityToOpportunityViewModel opportunityConverter) {
-		this.accountConverter = accountConverter;
-		this.opportunityConverter = opportunityConverter;
-	}
-
 
 	@Nullable
 	@Override
@@ -33,13 +22,13 @@ Converter<Contact,ContactViewModel>{
 		}
 		final ContactViewModel contact= new ContactViewModel();
 		contact.setId(source.getId());
-		contact.setAccount(accountConverter.convert(source.getAccount()));
+		
 		contact.setContactable(source.isContactable());
 		contact.setEmail(source.getEmail());
 		contact.setName(source.getName());
 		contact.setPhone(source.getPhone());
 		contact.setReportTo(source.getReportTo());
-		contact.setOpportunity(opportunityConverter.convert(source.getOpportunity()));
+	
 		
 		return contact;
 	}

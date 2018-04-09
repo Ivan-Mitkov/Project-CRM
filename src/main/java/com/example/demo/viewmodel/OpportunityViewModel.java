@@ -5,9 +5,8 @@ import java.util.List;
 public class OpportunityViewModel {
 	
 	private Long id;
-	private List<ContactViewModel> contact;
 	private String status;
-	private AccountViewModel account;
+	private String description;
 	
 	public Long getId() {
 		return id;
@@ -22,20 +21,13 @@ public class OpportunityViewModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
-	public List<ContactViewModel> getContact() {
-		return contact;
-	}
-
-	public void setContact(List<ContactViewModel> contact) {
-		this.contact = contact;
-	}
-	public AccountViewModel getAccount() {
-		return account;
-	}
-	public void setAccount(AccountViewModel account) {
-		this.account = account;
-	}
 	
 
 }

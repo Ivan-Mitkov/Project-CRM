@@ -28,17 +28,7 @@ import com.example.demo.enums.Status;
 public class SaleBindingModelToSaleTest {
 
 	SaleBindingModelToSale converter;
-	ProductBindingModelToProduct productConverter;
-
-	AccountBindingModelToAccount accountConverter;
 	
-	EmployeeBindingModelToEmployee employeeConverter;
-	
-	@Before
-	public void setUp() throws Exception {
-        converter = new SaleBindingModelToSale
-        		(productConverter,accountConverter,employeeConverter);
-    }
 	@Test
     public void testNullObject() throws Exception {
         assertNull(converter.convert(null));
@@ -54,9 +44,6 @@ public class SaleBindingModelToSaleTest {
 		model.setId(1l);
 		model.setClosedAt(LocalDate.now());
 		
-		AccountBindingModel account= new AccountBindingModel();
-		account.setId(21L);
-		model.setAccount(account);
 		
 		
 		 //when

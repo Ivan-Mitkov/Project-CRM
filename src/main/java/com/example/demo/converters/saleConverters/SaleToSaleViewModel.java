@@ -15,14 +15,10 @@ public class SaleToSaleViewModel implements
 Converter< Sale,SaleViewModel>{
 
 	private final ProductToProductViewModel productConveter;
-	private final AccountToAccountViewModel accountConverter;
-	private final EmployeeToEmployeeViewModel employeeConverter;
 	
-	public SaleToSaleViewModel(ProductToProductViewModel productConveter, AccountToAccountViewModel accountConverter,
-			EmployeeToEmployeeViewModel employeeConverter) {
+
+	public SaleToSaleViewModel(ProductToProductViewModel productConveter) {
 		this.productConveter = productConveter;
-		this.accountConverter = accountConverter;
-		this.employeeConverter = employeeConverter;
 	}
 
 
@@ -39,9 +35,7 @@ Converter< Sale,SaleViewModel>{
 		sale.setPrice(source.getPrice());
 		sale.setClosedAt(source.getClosedAt());
 		sale.setQuontity(source.getQuontity());
-		sale.setAccount(accountConverter.convert(source.getAccount()));
-		sale.setEmployee(employeeConverter.convert(source.getEmployee()));
-		
+	
 		return sale;
 	}
 

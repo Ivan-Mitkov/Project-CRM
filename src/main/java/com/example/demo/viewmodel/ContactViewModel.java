@@ -8,9 +8,7 @@ public class ContactViewModel {
 	private String phone;
 	private String reportTo;
 	private boolean isContactable;
-	private AccountViewModel account;
-	private OpportunityViewModel opportunity;
-	
+		
 	
 	public Long getId() {
 		return id;
@@ -47,18 +45,6 @@ public class ContactViewModel {
 	}
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
-	}
-	public AccountViewModel getAccount() {
-		return account;
-	}
-	public void setAccount(AccountViewModel account) {
-		this.account = account;
-	}
-	public OpportunityViewModel getOpportunity() {
-		return opportunity;
-	}
-	public void setOpportunity(OpportunityViewModel opportunity) {
-		this.opportunity = opportunity;
 	}
 	
 	

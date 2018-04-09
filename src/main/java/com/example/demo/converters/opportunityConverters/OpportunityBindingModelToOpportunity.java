@@ -1,5 +1,8 @@
 package com.example.demo.converters.opportunityConverters;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -8,6 +11,7 @@ import com.example.demo.bindingmodel.OpportunityBindingModel;
 import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
 import com.example.demo.converters.contactConverters.ContactBindingModelToContact;
 import com.example.demo.entities.Account;
+import com.example.demo.entities.Contact;
 import com.example.demo.entities.Opportunity;
 import com.example.demo.enums.Status;
 
@@ -15,18 +19,7 @@ import com.example.demo.enums.Status;
 public class OpportunityBindingModelToOpportunity implements 
 Converter<OpportunityBindingModel, Opportunity>{
 
-	//@Autowired
-	private final AccountBindingModelToAccount accountConverter;
-	//@Autowired
-	private final ContactBindingModelToContact contactConverter;
 	
-	
-	public OpportunityBindingModelToOpportunity(AccountBindingModelToAccount accountConverter,
-			ContactBindingModelToContact contactConverter) {
-		this.accountConverter = accountConverter;
-		this.contactConverter = contactConverter;
-	}
-
 
 	@Override
 	@Nullable
@@ -38,31 +31,16 @@ Converter<OpportunityBindingModel, Opportunity>{
 		
 		final Opportunity opp=new Opportunity();
 		opp.setId(source.getId());
-		 
-		if(source.getStatus()==null) {
-			Status statusEnum =Status.CLOSED;
-			opp.setStatus(statusEnum);
-		}
-		else {
-			opp.setStatus(Status.valueOf(status));
-		}
-		
-		if(source.getAccount()!=null) {
-			opp.setAccount(accountConverter.convert(source.getAccount()));
-
-		}
-		else {
+		opp.setDescription(source.getDescription());
+		opp.setStatus("Closed");
+		if(opp.getAccount()==null) {
 			Account account = new Account();
 			opp.setAccount(account);
-			
 		}
-		
-		if(source.getContact()!=null&&source.getContact().size()>0) {
-			source.getContact()
-			.forEach(contact->opp.getContact()
-					.add(contactConverter.convert(contact)));
+		if(opp.getContact()==null) {
+			List<Contact>contacts= new ArrayList<>();
+			opp.setContact(contacts);
 		}
-
 		
 		return opp;
 	}

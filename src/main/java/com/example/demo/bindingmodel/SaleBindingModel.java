@@ -5,13 +5,10 @@ import java.time.LocalDate;
 public class SaleBindingModel {
 	
 	private Long id;
-	private EmployeeBindingModel employee;
-	private ManagerBindingModel manager;
 	private ProductBindingModel product;
 	private Double quontity;
 	private Double price;
 	private LocalDate closedAt;
-	private AccountBindingModel account;
 	
 	public Long getId() {
 		return id;
@@ -20,13 +17,6 @@ public class SaleBindingModel {
 		this.id = id;
 	}
 	
-	public EmployeeBindingModel getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(EmployeeBindingModel employee) {
-		this.employee = employee;
-	}
 
 	public ProductBindingModel getProduct() {
 		return product;
@@ -51,20 +41,9 @@ public class SaleBindingModel {
 	}
 	//tova moge da dade problemi
 	public void setClosedAt(LocalDate closedAt) {
-		this.closedAt = closedAt;
+		LocalDate.of(closedAt.getYear(),closedAt.getMonth(),closedAt.getDayOfMonth());
 	}
-	public ManagerBindingModel getManager() {
-		return manager;
-	}
-	public void setManager(ManagerBindingModel manager) {
-		this.manager = manager;
-	}
-	public AccountBindingModel getAccount() {
-		return account;
-	}
-	public void setAccount(AccountBindingModel account) {
-		this.account = account;
-	}
+	
 
 	
 }

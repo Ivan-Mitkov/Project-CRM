@@ -5,9 +5,9 @@ import java.util.List;
 public class OpportunityBindingModel {
 	
 	private Long id;
-	private List<ContactBindingModel> contact;
+	
 	private String status;
-	private AccountBindingModel account;
+	private String description;
 
 	public Long getId() {
 		return id;
@@ -22,19 +22,13 @@ public class OpportunityBindingModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
-	public List<ContactBindingModel> getContact() {
-		return contact;
-	}
-
-	public void setContact(List<ContactBindingModel> contact) {
-		this.contact = contact;
-	}
-	public AccountBindingModel getAccount() {
-		return account;
-	}
-	public void setAccount(AccountBindingModel account) {
-		this.account = account;
-	}
+	
 	
 }

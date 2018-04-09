@@ -13,16 +13,7 @@ import com.example.demo.entities.Contact;
 public class ContactToContactBindingModel implements 
 Converter<Contact,ContactBindingModel>{
 
-	private final AccountToAccountBindingModel accountConverter;
-	private final OpportunityToOpportunityBindingModel opportunityConverter;
 	
-	
-	public ContactToContactBindingModel(AccountToAccountBindingModel accountConverter,
-			OpportunityToOpportunityBindingModel opportunityConverter) {
-		this.accountConverter = accountConverter;
-		this.opportunityConverter = opportunityConverter;
-	}
-
 
 	@Nullable
 	@Override
@@ -32,13 +23,13 @@ Converter<Contact,ContactBindingModel>{
 		}
 		final ContactBindingModel contact= new ContactBindingModel();
 		contact.setId(source.getId());
-		contact.setAccount(accountConverter.convert(source.getAccount()));
+	
 		contact.setContactable(source.isContactable());
 		contact.setEmail(source.getEmail());
 		contact.setName(source.getName());
 		contact.setPhone(source.getPhone());
 		contact.setReportTo(source.getReportTo());
-		contact.setOpportunity(opportunityConverter.convert(source.getOpportunity()));
+		
 		
 		return contact;
 	}

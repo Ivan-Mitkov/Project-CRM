@@ -15,17 +15,11 @@ public class SaleBindingModelToSale implements
 Converter< SaleBindingModel,Sale>{
 
 	private final ProductBindingModelToProduct productConveter;
-	private final AccountBindingModelToAccount accountConverter;
-	private final EmployeeBindingModelToEmployee employeeConverter;
-	
-	
 
-	public SaleBindingModelToSale(ProductBindingModelToProduct productConveter,
-			AccountBindingModelToAccount accountConverter, EmployeeBindingModelToEmployee employeeConverter) {
+	public SaleBindingModelToSale(ProductBindingModelToProduct productConveter) {
 		this.productConveter = productConveter;
-		this.accountConverter = accountConverter;
-		this.employeeConverter = employeeConverter;
 	}
+
 
 
 
@@ -42,12 +36,7 @@ Converter< SaleBindingModel,Sale>{
 		sale.setPrice(source.getPrice());
 		sale.setClosedAt(source.getClosedAt());
 		sale.setQuontity(source.getQuontity());
-		if(sale.getAccount()!=null) {
-			sale.setAccount(accountConverter.convert(source.getAccount()));
-
-		}
-		sale.setAccount(accountConverter.convert(source.getAccount()));
-		sale.setEmployee(employeeConverter.convert(source.getEmployee()));
+		
 		
 		return sale;
 	}

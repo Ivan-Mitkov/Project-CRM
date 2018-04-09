@@ -22,15 +22,12 @@ public class OpportunityBindingModelToOpportunityTest {
 
 	
 	OpportunityBindingModelToOpportunity converter;
-
-	AccountBindingModelToAccount accountConverter;
-	
-	ContactBindingModelToContact contactConverter;
 	@Before
-	public void setUp() throws Exception {
-        converter = new OpportunityBindingModelToOpportunity
-        		(accountConverter,contactConverter);
+    public void setUp() throws Exception {
+        converter = new OpportunityBindingModelToOpportunity();
+
     }
+
 	@Test
     public void testNullObject() throws Exception {
         assertNull(converter.convert(null));
@@ -45,17 +42,10 @@ public class OpportunityBindingModelToOpportunityTest {
 		OpportunityBindingModel model=new OpportunityBindingModel();
 		model.setId(1l);
 		
-		Status status =Status.CLOSED;
-		model.setStatus(status.name());
 		
-		List<ContactBindingModel> contacts=new ArrayList<>();
-		ContactBindingModel contact= new ContactBindingModel();
-		contact.setId(23L);
+		model.setStatus("Closed");
 		
-		AccountBindingModel account= new AccountBindingModel();
-		//account.setId(21L);
-		//model.setAccount(account);
-		model.setContact(contacts);
+		model.setDescription("description");
 		
 		 //when
 		Opportunity opp=converter.convert(model);

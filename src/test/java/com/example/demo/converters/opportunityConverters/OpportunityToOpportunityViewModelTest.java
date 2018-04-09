@@ -30,13 +30,10 @@ public class OpportunityToOpportunityViewModelTest {
 	
 	OpportunityToOpportunityViewModel converter;
 
-	AccountToAccountViewModel accountConverter;
-	
-	ContactToContactViewModel contactConverter;
 	@Before
-	public void setUp() throws Exception {
-        converter = new OpportunityToOpportunityViewModel
-        		(accountConverter,contactConverter);
+    public void setUp() throws Exception {
+        converter = new OpportunityToOpportunityViewModel();
+
     }
 	@Test
     public void testNullObject() throws Exception {
@@ -51,17 +48,9 @@ public class OpportunityToOpportunityViewModelTest {
 		 //given
 		Opportunity model=new Opportunity();
 		model.setId(1l);		
-		Status status =Status.CLOSED;
+		model.setStatus("Closed");
 		
-		List<Contact> contacts=new ArrayList<>();
-		Contact contact= new Contact();
-		contact.setId(23L);
-		
-//		Account account= new Account();
-//		account.setId(21L);
-//		model.setAccount(account);
-		model.setContact(contacts);
-		
+		model.setDescription("description");
 		 //when
 		OpportunityViewModel opp=converter.convert(model);
 		

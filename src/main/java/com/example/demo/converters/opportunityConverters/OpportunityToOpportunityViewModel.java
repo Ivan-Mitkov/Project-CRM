@@ -16,42 +16,20 @@ import com.example.demo.viewmodel.OpportunityViewModel;
 @Component
 public class OpportunityToOpportunityViewModel implements 
 Converter< Opportunity,OpportunityViewModel>{
-	private final AccountToAccountViewModel accountConverter;
-	private final ContactToContactViewModel contactConverter;
 	
-	public OpportunityToOpportunityViewModel(AccountToAccountViewModel accountConverter,
-			ContactToContactViewModel contactConverter) {
-		this.accountConverter = accountConverter;
-		this.contactConverter = contactConverter;
-	}
-
 	@Override
 	@Nullable
 	public synchronized OpportunityViewModel convert(Opportunity source) {
 		if(source==null) {
 			return null;
 		}
-		Status status = source.getStatus();
 		
 		final OpportunityViewModel opp=new OpportunityViewModel();
 		opp.setId(source.getId());
+		opp.setDescription(source.getDescription());		
+		opp.setStatus(source.getStatus());
 		
-		if(source.getStatus()==null) {
-			Status statusEnum =Status.CLOSED;
-			opp.setStatus(statusEnum.name());
-		}
-		else {
-			opp.setStatus(source.getStatus().name());
-		}
-		if(source.getAccount()!=null) {
-			opp.setAccount(accountConverter.convert(source.getAccount()));
-		}
-		if(source.getContact()!=null&&source.getContact().size()>0) {
-			source.getContact()
-			.forEach(contact->opp.getContact()
-					.add(contactConverter.convert(contact)));
-		}
-		
+	
 		
 		return opp;		
 	}

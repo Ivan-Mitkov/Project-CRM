@@ -29,8 +29,10 @@ public class Opportunity {
 	private List<Contact> contact;
 	
 	@Column(name="status")
-	private Status status;
+	private String status;
 	
+	@Column(name="description")
+	private String description;
 	
 	@ManyToOne(fetch=FetchType.LAZY,			
 	cascade= 
@@ -47,11 +49,14 @@ public class Opportunity {
 	
 	
 
-	public Opportunity(List<Contact> contact, Status status, Account account) {
+
+	public Opportunity(List<Contact> contact, String status, String description, Account account) {
 		this.contact = contact;
 		this.status = status;
+		this.description = description;
 		this.account = account;
 	}
+
 
 
 
@@ -62,10 +67,10 @@ public class Opportunity {
 		this.id = id;
 	}
 	
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	
@@ -84,6 +89,21 @@ public class Opportunity {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+
+	
+	public String getDescription() {
+		return description;
+	}
+
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
 
 	@Override
 	public String toString() {
