@@ -24,6 +24,9 @@ public class Account {
 	@Column(name="id")//actual name of the column
 	private Long id;
 	
+	@Column(name="idNumber")
+	private String idNumber;
+	
 	@Column(name="name")
 	private String name;
 	
@@ -102,9 +105,12 @@ public class Account {
 	}
 	
 	
-	public Account(String name, String email, String phone, Adress adress, List<Contact> contacts, List<Event> events,
-			List<Task> tasks, List<Opportunity> opportunities, List<Employee> workingForThisAccount,
+	
+
+	public Account(String idNumber, String name, String email, String phone, Adress adress, List<Contact> contacts,
+			List<Event> events, List<Task> tasks, List<Opportunity> opportunities, List<Employee> workingForThisAccount,
 			List<Manager> managersWorkingForThisAccount, List<Sale> salesForThisAccount) {
+		this.idNumber = idNumber;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -116,6 +122,14 @@ public class Account {
 		this.workingForThisAccount = workingForThisAccount;
 		this.managersWorkingForThisAccount = managersWorkingForThisAccount;
 		this.salesForThisAccount = salesForThisAccount;
+	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 
 	public Long getId() {

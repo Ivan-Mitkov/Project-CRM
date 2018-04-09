@@ -22,7 +22,7 @@ Converter<Contact,ContactViewModel>{
 		}
 		final ContactViewModel contact= new ContactViewModel();
 		contact.setId(source.getId());
-		
+		contact.setIdNumber(source.getIdNumber());
 		contact.setContactable(source.isContactable());
 		contact.setEmail(source.getEmail());
 		contact.setName(source.getName());

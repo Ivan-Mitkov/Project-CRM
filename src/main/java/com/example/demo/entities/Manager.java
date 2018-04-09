@@ -23,6 +23,9 @@ public class Manager {
 	@Column(name="id")
 	private Long id;
 	
+	@Column(name="idNumber")
+	private String idNumber;
+	
 	@Column(name="name")
 	private String name;
 	
@@ -86,8 +89,9 @@ public class Manager {
 	}
 	
 	
-	public Manager(String name, String email, String phone, boolean isCurrentEmployee, List<Task> tasks,
-			List<Employee> employees, List<Account> accounts, List<Event> events, List<Sale> sales) {
+	public Manager(String idNumber, String name, String email, String phone, boolean isCurrentEmployee,
+			List<Task> tasks, List<Employee> employees, List<Account> accounts, List<Event> events, List<Sale> sales) {
+		this.idNumber = idNumber;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -107,6 +111,16 @@ public class Manager {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
+
 
 	public String getName() {
 		return name;

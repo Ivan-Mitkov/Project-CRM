@@ -24,6 +24,9 @@ public class Employee {
 	@Column(name="id")
 	private Long id;
 	
+	@Column(name="idNumber")
+	private String idNumber;
+	
 	@Column(name="name")
 	private String name;
 	
@@ -89,8 +92,11 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Employee(String name, String email, String phone, boolean isCurrentEmployee, List<Task> tasks,
-			List<Account> accounts, List<Event> events, List<Sale> sales, Manager manager) {
+	
+
+	public Employee(String idNumber, String name, String email, String phone, boolean isCurrentEmployee,
+			List<Task> tasks, List<Account> accounts, List<Event> events, List<Sale> sales, Manager manager) {
+		this.idNumber = idNumber;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -101,6 +107,20 @@ public class Employee {
 		this.sales = sales;
 		this.manager = manager;
 	}
+
+
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
+
+
 
 	public Long getId() {
 		return id;

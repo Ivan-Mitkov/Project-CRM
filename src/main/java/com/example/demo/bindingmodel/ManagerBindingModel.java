@@ -3,18 +3,14 @@ package com.example.demo.bindingmodel;
 import java.util.List;
 
 public class ManagerBindingModel {
-	private Long id;
+	
+	private String idNumber;
 	private String name;
 	private String email;	
 	private String phone;	
 	private boolean isCurrentEmployee;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -39,6 +35,12 @@ public class ManagerBindingModel {
 	}
 	public void setCurrentEmployee(boolean isCurrentEmployee) {
 		this.isCurrentEmployee = isCurrentEmployee;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 	
 }

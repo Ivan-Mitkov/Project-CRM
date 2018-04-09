@@ -26,4 +26,8 @@ public class AccountServiceImpl implements AccountService {
 		 Optional<Account> account=repository.findByName(name);
 		 return account;
 	 }
+	public Optional<Account> findAccountByIdNumber(String idNumber) {
+		 Optional<Account> account=repository.findByIdNumber(idNumber);
+		 return account;
+	}
 }

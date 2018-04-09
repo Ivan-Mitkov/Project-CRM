@@ -26,6 +26,7 @@ Converter<Account,AccountViewModel > {
 			return null;
 		}
 		final AccountViewModel account=new AccountViewModel();
+		account.setIdNumber(source.getIdNumber());
 		account.setName(source.getName());
 		account.setAdress(converter.convert(source.getAdress()));
 		account.setEmail(source.getEmail());

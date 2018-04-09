@@ -3,6 +3,7 @@ package com.example.demo.bindingmodel;
 public class ContactBindingModel {
 	
 	private Long id;
+	private String idNumber;
 	private String name;
 	private String email;
 	private String phone;
@@ -46,6 +47,12 @@ public class ContactBindingModel {
 	}
 	public void setContactable(boolean isContactable) {
 		this.isContactable = isContactable;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 	
 	

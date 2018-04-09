@@ -6,6 +6,7 @@ import java.util.List;
 public class AccountViewModel {
 	
 	private Long id;
+	private String idNumber;
 	private String name;
 	private String email;
 	private String phone;
@@ -42,6 +43,12 @@ public class AccountViewModel {
 	}
 	public void setAdress(AdressViewModel adress) {
 		this.adress = adress;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 	
 	

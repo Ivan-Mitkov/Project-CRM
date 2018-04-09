@@ -19,6 +19,9 @@ public class Contact {
 	@Column(name="id")
 	private Long id;
 	
+	@Column(name="idNumber")
+	private String idNumber;
+	
 	@Column(name="name")
 	private String name;
 	
@@ -57,9 +60,9 @@ public class Contact {
 	}
 	
 	
-
-	public Contact(String name, String email, String phone, String reportTo, boolean isContactable, Account account,
-			Opportunity opportunity) {
+	public Contact(String idNumber, String name, String email, String phone, String reportTo, boolean isContactable,
+			Account account, Opportunity opportunity) {
+		this.idNumber = idNumber;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -70,13 +73,20 @@ public class Contact {
 	}
 
 
-
-
-
 	public Opportunity getOpportunity() {
 		return opportunity;
 	}
 
+
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
 
 
 	public void setOpportunity(Opportunity opportunity) {

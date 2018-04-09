@@ -44,8 +44,9 @@ Converter<AccountBindingModel, Account>{
 		if(source==null) {
 			return null;
 		}
-		String name=source.getName();
-		Optional<Account> accountOptional =service.findAccountByName(name);
+		String idNumber=source.getIdNumber();
+		Optional<Account> accountOptional=service.
+										findAccountByIdNumber(idNumber);
 		Account account=new Account();
 		if(accountOptional.isPresent()) {
 			account=accountOptional.get();
@@ -70,7 +71,7 @@ Converter<AccountBindingModel, Account>{
 			 Adress adress=new Adress();
 			 account.setAdress(adress);
 		}
-		
+		account.setIdNumber(source.getIdNumber());
 		account.setAdress(converter.convert(source.getAdress()));
 		account.setEmail(source.getEmail());
 		account.setName(source.getName());

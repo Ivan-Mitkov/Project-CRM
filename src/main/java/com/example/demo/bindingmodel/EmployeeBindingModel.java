@@ -6,6 +6,7 @@ import java.util.List;
 public class EmployeeBindingModel {
 
 	private Long id;
+	private String idNumber;
 	private String name;
 	private String email;	
 	private String phone;	
@@ -50,6 +51,12 @@ public class EmployeeBindingModel {
 	}
 	public void setManager(ManagerBindingModel manager) {
 		this.manager = manager;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class ManagerViewModel {
 	private Long id;
+	private String idNumber;
 	private String name;
 	private String email;	
 	private String phone;	
@@ -39,6 +40,12 @@ public class ManagerViewModel {
 	}
 	public void setCurrentEmployee(boolean isCurrentEmployee) {
 		this.isCurrentEmployee = isCurrentEmployee;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 	
 	

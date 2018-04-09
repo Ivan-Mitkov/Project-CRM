@@ -23,7 +23,7 @@ Converter<Contact,ContactBindingModel>{
 		}
 		final ContactBindingModel contact= new ContactBindingModel();
 		contact.setId(source.getId());
-	
+		contact.setIdNumber(source.getIdNumber());
 		contact.setContactable(source.isContactable());
 		contact.setEmail(source.getEmail());
 		contact.setName(source.getName());

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AccountBindingModel {
 	
-	
+	private String idNumber;
 	private String name;
 	private String email;
 	private String phone;
@@ -36,6 +36,12 @@ public class AccountBindingModel {
 	}
 	public void setAdress(AdressBindingModel adress) {
 		this.adress = adress;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 	
 	
