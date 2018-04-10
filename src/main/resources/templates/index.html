@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Relationship Management</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+	<th:block th:include="fragments/navbar::navbar"></th:block>
+		<div class="container d-flex justify-content-middle mt-4 mb-4">
+			<form class="mx-auto" th:action="@{/search}" th:method="GET">
+				<input  type="text" name ="name" placeholder="Search"/>
+				<button class="button-blue btn" type="submit">Search</button>
+			</form>
+			
+		</div> 
+		
+	
+	
+	
+	</div>
+	
+</body>
+</html>
