@@ -30,7 +30,7 @@ public class AccountBindingModelToAccountTest {
 	@Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        service = new AccountServiceImpl(repository);
+        service = new AccountServiceImpl(repository, converter, null);
         adressConverter=new AdressBindingModelToAdress();
         converter=new AccountBindingModelToAccount(adressConverter,service);
         

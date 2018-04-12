@@ -26,7 +26,7 @@ public class AccountServiceImplTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        service = new AccountServiceImpl(repository);
+        service = new AccountServiceImpl(repository, null, null);
     }
 	
 	 @Test
