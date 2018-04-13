@@ -19,13 +19,15 @@ import com.example.demo.services.AccountService;
 @RequestMapping("/account")
 public class AccountController {
 	Logger logger=LoggerFactory.getLogger(AccountController.class);
+	
 	private final AccountService accountService;
-	 private static final String ACCOUNT_ACCOUNTFORM_URL = "account/accountform";
+	
+	private static final String ACCOUNT_ACCOUNTFORM_URL = "account/accountform";
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
 	}
 	
-	 @GetMapping("/account/{id}/show")
+	 @GetMapping("/account/{id}/showaccount")
 	    public String showById(@PathVariable String id, Model model){
 
 	        model.addAttribute("account", accountService.findAccountByIdNumber(new String(id)));

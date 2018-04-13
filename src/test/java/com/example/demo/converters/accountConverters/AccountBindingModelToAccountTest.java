@@ -32,7 +32,7 @@ public class AccountBindingModelToAccountTest {
         MockitoAnnotations.initMocks(this);
         service = new AccountServiceImpl(repository, converter, null);
         adressConverter=new AdressBindingModelToAdress();
-        converter=new AccountBindingModelToAccount(adressConverter,service);
+        converter=new AccountBindingModelToAccount(adressConverter);
         
     }
 	
@@ -63,7 +63,7 @@ public class AccountBindingModelToAccountTest {
 		Account account=converter.convert(model);
 		
 		//then
-		assertNotNull(account.getContacts());
+		
 		assertNotNull(account);
 	}
 	

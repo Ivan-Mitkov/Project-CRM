@@ -2,7 +2,7 @@ package com.example.demo.serviceImpl;
 
 import java.util.Optional;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService {
 	private final AccountBindingModelToAccount accountBindingModelToAccount;
 	private final AccountToAccountBindingModel accountToAccountBindingModel;
 	
-	
+	@Autowired
 	 public AccountServiceImpl(AccountRepository repository, AccountBindingModelToAccount accountBindingModelToAccount,
 			AccountToAccountBindingModel accountToAccountBindingModel) {
 		this.repository = repository;
