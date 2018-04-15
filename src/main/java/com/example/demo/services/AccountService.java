@@ -31,4 +31,6 @@ public interface AccountService {
 
 	AdressViewModel findAddressByAccountIdNumber(String idNumber);
 
+	AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command);
+
 }

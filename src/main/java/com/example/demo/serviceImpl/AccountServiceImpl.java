@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -116,6 +118,14 @@ public class AccountServiceImpl implements AccountService {
 		Adress address=account.getAdress();
 		AdressViewModel viewAddress=addressToAddressViewModel.convert(address);
 		return viewAddress;
+	}
+
+	@Override
+	@Transactional
+	public AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command) {
+		Account detachedAccount=accountBindingModelToAccount.convert(command);
+		Account savedAccount=repository.save(detachedAccount);
+		return accountToAccountBindingModel.convert(savedAccount);
 	}
 
 }

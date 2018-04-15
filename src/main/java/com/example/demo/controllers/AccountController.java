@@ -42,9 +42,9 @@ public class AccountController {
 	        return ACCOUNT_ACCOUNTFORM_URL;
 	    }
 
-	    @PostMapping("account")
+	    @PostMapping({"account/accountform","account/{id}/update"})
 	    public String saveOrUpdate(@Valid @ModelAttribute("account") AccountBindingModel command, BindingResult bindingResult){
-
+	    	logger.info("EDITED"+command.getId());
 	        if(bindingResult.hasErrors()){
 
 	            bindingResult.getAllErrors().forEach(objectError -> {
@@ -53,11 +53,18 @@ public class AccountController {
 
 	            return ACCOUNT_ACCOUNTFORM_URL;
 	        }
+	        AccountBindingModel savedCommand=new AccountBindingModel();
+	        if(!command.getIdNumber().equals(null)) {
+	        	savedCommand=accountService.editAccountBindingModel(command);
+	        }
+	        else {
+	        	savedCommand = accountService.saveAccountBindingModel(command);
+	        }
+	        logger.info("EDITED"+savedCommand.getId());
 
-	        AccountBindingModel savedCommand = accountService.saveAccountBindingModel(command);
-
-	        return "redirect:/account/" + savedCommand.getIdNumber() + "/showaccount";
+	        return "redirect:/account"+savedCommand.getIdNumber()+"/showaccount";
 	    }
+	    
 
 	    @GetMapping("account/{id}/delete")
 	    public String deleteById(@PathVariable String id){

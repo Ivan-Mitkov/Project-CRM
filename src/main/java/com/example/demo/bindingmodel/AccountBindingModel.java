@@ -5,6 +5,7 @@ import java.util.List;
 
 public class AccountBindingModel {
 	
+	private Long id;
 	private String idNumber;
 	private String name;
 	private String email;
@@ -42,6 +43,12 @@ public class AccountBindingModel {
 	}
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	
