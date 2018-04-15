@@ -41,10 +41,10 @@ public class ContactViewModel {
 	public void setReportTo(String reportTo) {
 		this.reportTo = reportTo;
 	}
-	public boolean isContactable() {
+	public boolean getIsContactable() {
 		return isContactable;
 	}
-	public void setContactable(boolean isContactable) {
+	public void setIsContactable(boolean isContactable) {
 		this.isContactable = isContactable;
 	}
 	public String getIdNumber() {

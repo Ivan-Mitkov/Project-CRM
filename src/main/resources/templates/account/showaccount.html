@@ -89,7 +89,45 @@
 		</div>
 
 
-List of contacts
+<!-- List of contacts -->
+<div class="container-fluid" style="margin-top: 20px">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="panel panel-primary">
+
+						<div class="panel-heading">
+							<h4 class="panel-title">Contacts</h4>
+						</div>
+						<div class="panel-body">
+							
+							<div class="table-responsive">
+								<table class="table table-hover ">
+									<thead class="thead-inverse">
+										<tr>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone</th>
+											<th>Report to</th>	
+											<th>To be contacted</th>											
+										</tr>
+									</thead>
+									
+									<tr th:each="contact : ${contacts}">
+										<td th:text="${contact.name}">Name</td>
+										<td th:text="${contact.email}">Email</td>
+										<td th:text="${contact.phone}">Phone</td>
+										<td th:text="${contact.reportTo}">Report to</td>
+										<td th:text="${contact.isContactable}">To be contacted</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 Opportunities
 Tasks
 Events

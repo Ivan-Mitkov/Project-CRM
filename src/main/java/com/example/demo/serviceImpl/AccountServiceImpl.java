@@ -37,8 +37,6 @@ public class AccountServiceImpl implements AccountService {
 	
 	@Autowired
 	
-	
-	
 	public AccountServiceImpl(AccountRepository repository, AccountBindingModelToAccount accountBindingModelToAccount,
 			AccountToAccountBindingModel accountToAccountBindingModel,
 			AccountViewModelToAccount accountViewModelToAccount, AccountToAccountViewModel accountToAccountViewModel,
