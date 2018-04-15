@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -14,9 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.bindingmodel.AccountBindingModel;
 import com.example.demo.services.AccountService;
+import com.example.demo.viewmodel.AccountViewModel;
 
 @Controller
-@RequestMapping("/account")
 public class AccountController {
 	Logger logger=LoggerFactory.getLogger(AccountController.class);
 	
@@ -43,7 +45,7 @@ public class AccountController {
 	    }
 
 	    @GetMapping("account/{id}/update")
-	    public String updateRecipe(@PathVariable String id, Model model){
+	    public String updateAccount(@PathVariable String id, Model model){
 	        model.addAttribute("account", accountService.findAccountByIdNumber(id));
 	        return ACCOUNT_ACCOUNTFORM_URL;
 	    }
@@ -72,6 +74,20 @@ public class AccountController {
 
 	        accountService.deleteByIdNumber(id);
 	        return "redirect:/";
+	    }
+	    
+	    @GetMapping("account/show")
+	    public String getAll(Model model){
+	    	 List<AccountViewModel>accounts=accountService.findAllAccounts();
+	    	 model.addAttribute("accounts", accounts);
+	    	 return "account/accounts";
+	    }
+	   
+	    @GetMapping("account/add")
+	    public String addAccount(Model model){
+	    	  model.addAttribute("account", new AccountBindingModel());
+
+		        return ACCOUNT_ACCOUNTFORM_URL;
 	    }
 
 	   

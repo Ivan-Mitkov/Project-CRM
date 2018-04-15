@@ -3,12 +3,12 @@
 <head>
     <title>Customer Relationship Management</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>	
+	<script src="/js/bootstrap.js"></script>	
 </head>
 <body>
 	<div class="container-fluid">
@@ -23,11 +23,11 @@
                 </div>
                 <div class="panel-body">
                 <!-- check this list -->
-                    <div class="table-responsive" th:if="${not #lists.isEmpty(accounts)}">
+                    <div class="table-responsive" >
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
-                                <th>ID</th>
+                                
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>                             
@@ -38,23 +38,26 @@
                             </tr>
                             </thead>
                             <tr th:remove="all">
-                                <td>123</td>
-                                <td>Tasty Goodnees 1</td>
+                                <td>Account</td>
+                                <td>email</td>
+                                <td>phone</td>
+                               
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:remove="all">
-                                <td>12333</td>
-                                <td>Tasty Goodnees 2</td>
+                                <td>Account</td>
+                                <td>email</td>
+                                <td>phone</td>
                                 <td><a href="#">View</a></td>
                             </tr>
+                            
                             <tr th:each="account : ${accounts}">
-                                <td th:text="${recipe.idNumber}">334</td>
-                                <td th:text="${recipe.name}">Tasty Goodnees 3</td>
-                                <td th:text="${recipe.email}">334</td>
-                                <td th:text="${recipe.phone}">Tasty Goodnees 3</td>                            
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a></td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a></td>
+                                <td th:text="${account.name}">Name</td>
+                                <td th:text="${account.email}">email</td>
+                                <td th:text="${account.phone}">Phone</td>                            
+                                <td><a href="#" th:href="@{'/account/' + ${account.idNumber} + '/showaccount'}">View</a></td>
+                                <td><a href="#" th:href="@{'/account/' + ${account.idNumber} + '/update'}">Update</a></td>
+                                <td><a href="#" th:href="@{'/account/' + ${account.idNumber} + '/delete'}">Delete</a></td>
                             </tr>
                         </table>
                     </div>
