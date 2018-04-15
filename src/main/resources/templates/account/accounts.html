@@ -1,77 +1,80 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Customer Relationship Management</title>
-	
-	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
-	
-	
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="/js/bootstrap.js"></script>	
+<title>Customer Relationship Management</title>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
-	<th:block th:include="fragments/navbar::navbar"></th:block>
+		<th:block th:include="fragments/navbar::navbar"></th:block>
 		<div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="panel panel-primary">
 
-                <div class="panel-heading">
-                    <h1 class="panel-title">Accounts</h1>
-                </div>
-                <div class="panel-body">
-                <!-- check this list -->
-                    <div class="table-responsive" >
-                        <table class="table table-hover ">
-                            <thead class="thead-inverse">
-                            <tr>
-                                
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>                             
-                                <th>View</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                
-                            </tr>
-                            </thead>
-                            <tr th:remove="all">
-                                <td>Account</td>
-                                <td>email</td>
-                                <td>phone</td>
-                               
-                                <td><a href="#">View</a></td>
-                            </tr>
-                            <tr th:remove="all">
-                                <td>Account</td>
-                                <td>email</td>
-                                <td>phone</td>
-                                <td><a href="#">View</a></td>
-                            </tr>
-                            
-                            <tr th:each="account : ${accounts}">
-                                <td th:text="${account.name}">Name</td>
-                                <td th:text="${account.email}">email</td>
-                                <td th:text="${account.phone}">Phone</td>                            
-                                <td><a href="#" th:href="@{'/account/' + ${account.idNumber} + '/showaccount'}">View</a></td>
-                                <td><a href="#" th:href="@{'/account/' + ${account.idNumber} + '/update'}">Update</a></td>
-                                <td><a href="#" th:href="@{'/account/' + ${account.idNumber} + '/delete'}">Delete</a></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-		
-		
-	
-	
-	
+						<div class="panel-heading">
+							<h1 class="panel-title">Accounts</h1>
+						</div>
+						<div class="panel-body">
+							<!-- check this list -->
+							<div class="table-responsive">
+								<table class="table table-hover ">
+									<thead class="thead-inverse">
+										<tr>
+
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone</th>
+											<th>View</th>
+											<th>Edit</th>
+											<th>Delete</th>
+
+										</tr>
+									</thead>
+									<tr th:remove="all">
+										<td>Account</td>
+										<td>email</td>
+										<td>phone</td>
+
+										<td><a href="#">View</a></td>
+									</tr>
+									<tr th:remove="all">
+										<td>Account</td>
+										<td>email</td>
+										<td>phone</td>
+										<td><a href="#">View</a></td>
+									</tr>
+
+									<tr th:each="account : ${accounts}">
+										<td th:text="${account.name}">Name</td>
+										<td th:text="${account.email}">email</td>
+										<td th:text="${account.phone}">Phone</td>
+										<td><a href="#"
+											th:href="@{'/account/' + ${account.idNumber} + '/showaccount'}">View</a></td>
+										<td><a href="#"
+											th:href="@{'/account/' + ${account.idNumber} + '/update'}">Update</a></td>
+										<td><a href="#"
+											th:href="@{'/account/' + ${account.idNumber} + '/delete'}">Delete</a></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 	</div>
-	
+
 </body>
 </html>

@@ -26,7 +26,7 @@ public class AccountServiceImplTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        service = new AccountServiceImpl(repository, null, null, null, null);
+        service = new AccountServiceImpl(repository, null, null, null, null, null);
     }
 	
 	 @Test
@@ -43,4 +43,5 @@ public class AccountServiceImplTest {
 	        verify(repository, times(1)).findByName("anyName");
 	        verify(repository, never()).findAll();
 	    }
+	
 }

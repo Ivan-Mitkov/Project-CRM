@@ -14,10 +14,13 @@ import com.example.demo.converters.accountConverters.AccountBindingModelToAccoun
 import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
 import com.example.demo.converters.accountConverters.AccountToAccountViewModel;
 import com.example.demo.converters.accountConverters.AccountViewModelToAccount;
+import com.example.demo.converters.adressConverters.AdressToAdressViewModel;
 import com.example.demo.entities.Account;
+import com.example.demo.entities.Adress;
 import com.example.demo.repositories.AccountRepository;
 import com.example.demo.services.AccountService;
 import com.example.demo.viewmodel.AccountViewModel;
+import com.example.demo.viewmodel.AdressViewModel;
 
 
 
@@ -30,34 +33,47 @@ public class AccountServiceImpl implements AccountService {
 	private final AccountToAccountBindingModel accountToAccountBindingModel;
 	private final AccountViewModelToAccount accountViewModelToAccount;
 	private final AccountToAccountViewModel accountToAccountViewModel;
+	private final AdressToAdressViewModel addressToAddressViewModel;
 	
 	@Autowired
+	
+	
+	
 	public AccountServiceImpl(AccountRepository repository, AccountBindingModelToAccount accountBindingModelToAccount,
 			AccountToAccountBindingModel accountToAccountBindingModel,
-			AccountViewModelToAccount accountViewModelToAccount, AccountToAccountViewModel accountToAccountViewModel) {
+			AccountViewModelToAccount accountViewModelToAccount, AccountToAccountViewModel accountToAccountViewModel,
+			AdressToAdressViewModel addressToAddressViewModel) {
 		this.repository = repository;
 		this.accountBindingModelToAccount = accountBindingModelToAccount;
 		this.accountToAccountBindingModel = accountToAccountBindingModel;
 		this.accountViewModelToAccount = accountViewModelToAccount;
 		this.accountToAccountViewModel = accountToAccountViewModel;
+		this.addressToAddressViewModel = addressToAddressViewModel;
 	}
+
 	@Override
 	public Account findAccountById(Long id) {
 		 Optional<Account> account=repository.findById(id);
 		 return account.get();
 	 }
-	
 	@Override
+    @Transactional
+
 	 public Optional<Account> findAccountByName(String name) {
 		 Optional<Account> account=repository.findByName(name);
 		 return account;
 	 }
 	@Override
-	public Optional<Account> findAccountByIdNumber(String idNumber) {
-		 Optional<Account> account=repository.findByIdNumber(idNumber);
+    @Transactional
+
+	public AccountViewModel findAccountViewByIdNumber(String idNumber) {
+		 Account accountThis=repository.findByIdNumber(idNumber).get();
+		 AccountViewModel account=accountToAccountViewModel.convert(accountThis);
 		 return account;
 	}
 	@Override
+    @Transactional
+
 	public void deleteByIdNumber(String idNumber) {
 		Account account = repository.findByIdNumber(idNumber).get();
 		long id =account.getId();
@@ -66,8 +82,8 @@ public class AccountServiceImpl implements AccountService {
 	}
 	@Override
     @Transactional
-    public AccountBindingModel findCommandByIdNumber(String idNumber) {
-		Account account=findAccountByIdNumber(idNumber).get();
+    public AccountBindingModel findAccountBindingByIdNumber(String idNumber) {
+		Account account=repository.findByIdNumber(idNumber).get();
 		
         return accountToAccountBindingModel.convert(account);
     }
@@ -80,6 +96,7 @@ public class AccountServiceImpl implements AccountService {
 	
 	}
 	@Override
+	@Transactional
 	public List<AccountViewModel> findAllAccounts() {
 		List<Account> accounts=repository.findAll();
 		List<AccountViewModel>allAccounts=new ArrayList<>();
@@ -88,5 +105,19 @@ public class AccountServiceImpl implements AccountService {
 				.collect(Collectors.toList());
 		return allAccounts;
 	}
-	
+	@Override
+	@Transactional
+	public Optional<Account> findAccountByIdNumber(String idNumber) {
+		 Optional<Account> account=repository.findByIdNumber(idNumber);
+		return account;
+	}
+	@Override
+	@Transactional
+	public AdressViewModel findAddressByAccountIdNumber(String idNumber) {
+		Account account=repository.findByIdNumber(idNumber).get();
+		Adress address=account.getAdress();
+		AdressViewModel viewAddress=addressToAddressViewModel.convert(address);
+		return viewAddress;
+	}
+
 }

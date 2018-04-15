@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.bindingmodel.AccountBindingModel;
+import com.example.demo.entities.Account;
 import com.example.demo.services.AccountService;
 import com.example.demo.viewmodel.AccountViewModel;
 
@@ -28,14 +29,7 @@ public class AccountController {
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
 	}
-	
-	 @GetMapping("/account/{id}/showaccount")
-	    public String showById(@PathVariable String id, Model model){
 
-	        model.addAttribute("account", accountService.findAccountByIdNumber(new String(id)));
-
-	        return "account/showaccount";
-	    }
 
 	    @GetMapping("account/new")
 	    public String newAccount(Model model){
