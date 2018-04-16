@@ -12,10 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.bindingmodel.AccountBindingModel;
+import com.example.demo.bindingmodel.AdressBindingModel;
 import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
 import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
 import com.example.demo.converters.accountConverters.AccountToAccountViewModel;
 import com.example.demo.converters.accountConverters.AccountViewModelToAccount;
+import com.example.demo.converters.adressConverters.AdressBindingModelToAdress;
+import com.example.demo.converters.adressConverters.AdressToAdressBindingModel;
 import com.example.demo.converters.adressConverters.AdressToAdressViewModel;
 import com.example.demo.entities.Account;
 import com.example.demo.entities.Adress;
@@ -36,26 +39,31 @@ public class AccountServiceImpl implements AccountService {
 	private final AccountViewModelToAccount accountViewModelToAccount;
 	private final AccountToAccountViewModel accountToAccountViewModel;
 	private final AdressToAdressViewModel addressToAddressViewModel;
-	
+	private final AdressToAdressBindingModel addressToAddressBindingModel;
+	private final AdressBindingModelToAdress addressBindingModelToAddress;
 	@Autowired
-	
 	public AccountServiceImpl(AccountRepository repository, AccountBindingModelToAccount accountBindingModelToAccount,
 			AccountToAccountBindingModel accountToAccountBindingModel,
 			AccountViewModelToAccount accountViewModelToAccount, AccountToAccountViewModel accountToAccountViewModel,
-			AdressToAdressViewModel addressToAddressViewModel) {
+			AdressToAdressViewModel addressToAddressViewModel, AdressToAdressBindingModel addressToAddressBindingModel,
+			AdressBindingModelToAdress addressBindingModelToAddress) {
 		this.repository = repository;
 		this.accountBindingModelToAccount = accountBindingModelToAccount;
 		this.accountToAccountBindingModel = accountToAccountBindingModel;
 		this.accountViewModelToAccount = accountViewModelToAccount;
 		this.accountToAccountViewModel = accountToAccountViewModel;
 		this.addressToAddressViewModel = addressToAddressViewModel;
+		this.addressToAddressBindingModel = addressToAddressBindingModel;
+		this.addressBindingModelToAddress = addressBindingModelToAddress;
 	}
+	
 
 	@Override
 	public Account findAccountById(Long id) {
 		 Optional<Account> account=repository.findById(id);
 		 return account.get();
 	 }
+	
 	@Override
     @Transactional
 
@@ -91,6 +99,9 @@ public class AccountServiceImpl implements AccountService {
 	@Transactional
 	public AccountBindingModel saveAccountBindingModel(AccountBindingModel command) {
 		Account detachedAccount=accountBindingModelToAccount.convert(command);
+		AdressBindingModel adress=command.getAdress();
+		Adress detachedAddress=addressBindingModelToAddress.convert(adress);
+		detachedAccount.setAdress(detachedAddress);
 		Account savedAccount=repository.save(detachedAccount);
 		return accountToAccountBindingModel.convert(savedAccount);
 	
@@ -124,6 +135,9 @@ public class AccountServiceImpl implements AccountService {
 	@Transactional
 	public AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command) {
 		Account detachedAccount=accountBindingModelToAccount.convert(command);
+		AdressBindingModel adress=command.getAdress();
+		Adress detachedAddress=addressBindingModelToAddress.convert(adress);
+		detachedAccount.setAdress(detachedAddress);
 		Account savedAccount=repository.save(detachedAccount);
 		return accountToAccountBindingModel.convert(savedAccount);
 	}

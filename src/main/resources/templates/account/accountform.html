@@ -15,7 +15,7 @@
 		<th:block th:include="fragments/navbar::navbar"></th:block>
 		Account form
 		<div class="container mt-4 color-link-blue">
-			<form class="mt-4 color-link-blue" th:action="@{/account}"
+			<form class="mt-4 color-link-blue" th:action="@{/account/{id}/update}"
 				th:method="post" th:object=${account}>
 				<h2>Account</h2>
 				<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">

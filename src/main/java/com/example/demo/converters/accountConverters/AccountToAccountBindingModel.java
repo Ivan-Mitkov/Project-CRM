@@ -27,7 +27,10 @@ Converter<Account,AccountBindingModel >{
 			return null;
 		}
 		final AccountBindingModel account=new AccountBindingModel();
-		account.setId(source.getId());
+		if(!source.getId().equals(null)) {
+			account.setId(source.getId());
+		}
+		
 		account.setIdNumber(source.getIdNumber());
 		account.setName(source.getName());
 		account.setAdress(converter.convert(source.getAdress()));
