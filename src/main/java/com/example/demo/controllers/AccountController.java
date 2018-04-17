@@ -50,7 +50,7 @@ public class AccountController {
 		if (bindingResult.hasErrors()) {
 
 			bindingResult.getAllErrors().forEach(objectError -> {
-				logger.info(objectError.toString());
+				logger.info("Error: "+objectError.toString());
 			});
 
 			return ACCOUNT_ACCOUNTFORM_URL;

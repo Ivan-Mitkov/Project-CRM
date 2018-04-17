@@ -74,8 +74,8 @@ public class AccountServiceImpl implements AccountService {
 	@Override
     @Transactional
 
-	public AccountViewModel findAccountViewByIdNumber(String idNumber) {
-		 Account accountThis=repository.findByIdNumber(idNumber).get();
+	public AccountViewModel findAccountViewByIdNumber(String id) {
+		 Account accountThis=repository.findByIdNumber(id).get();
 		 AccountViewModel account=accountToAccountViewModel.convert(accountThis);
 		 return account;
 	}
@@ -134,12 +134,27 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	@Transactional
 	public AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command) {
-		Account detachedAccount=accountBindingModelToAccount.convert(command);
-		AdressBindingModel adress=command.getAdress();
-		Adress detachedAddress=addressBindingModelToAddress.convert(adress);
-		detachedAccount.setAdress(detachedAddress);
-		Account savedAccount=repository.save(detachedAccount);
-		return accountToAccountBindingModel.convert(savedAccount);
+		//tuk ima problem
+		Optional<Account> detachedAccount= repository.findById(command.getId());
+		if(detachedAccount.isPresent()) {
+			Account accountForm=accountBindingModelToAccount.convert(command);
+			AdressBindingModel adress=command.getAdress();
+			Adress detachedAddress=addressBindingModelToAddress.convert(adress);
+			accountForm.setAdress(detachedAddress);
+			Account savedAccount=repository.save(accountForm);
+			return accountToAccountBindingModel.convert(savedAccount);
+		}
+		else {
+			Account newAccount=new Account();
+			newAccount=accountBindingModelToAccount.convert(command);
+			Adress adressOfNewAccount=new Adress();
+			AdressBindingModel adressOfCommand=command.getAdress();
+			adressOfNewAccount=addressBindingModelToAddress.convert(adressOfCommand);
+			newAccount.setAdress(adressOfNewAccount);
+			Account savedAccount=repository.save(newAccount);
+			return accountToAccountBindingModel.convert(savedAccount);
+			
+		}
 	}
 
 }
