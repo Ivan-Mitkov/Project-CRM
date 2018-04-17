@@ -31,9 +31,9 @@ public class AccountViewController {
 		this.contactService = contactService;
 	}
 
-	@GetMapping("/account/{idNumber}/showaccount")
-	public String showById(@PathVariable String idNumber, Model model) {
-		AccountViewModel account = accountService.findAccountViewByIdNumber(new String(idNumber));
+	@GetMapping("/account/{id}/showaccount")
+	public String showById(@PathVariable String id, Model model) {
+		AccountViewModel account = accountService.findAccountViewByIdNumber(new String(id));
 
 		model.addAttribute("account", account);
 

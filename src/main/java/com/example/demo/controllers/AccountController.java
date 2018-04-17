@@ -59,9 +59,9 @@ public class AccountController {
 		
 		savedCommand = accountService.editAccountBindingModel(command);
 		
-		logger.info("EDITED" + savedCommand.getId());
+		logger.info("EDITED: account id:" + savedCommand.getId());
 
-		return "redirect:account/show";
+		return "redirect:/account/show";
 	}
 
 	@GetMapping("account/{id}/delete")
