@@ -24,17 +24,12 @@ public class AccountController {
 	private final AccountService accountService;
 
 	private static final String ACCOUNT_ACCOUNTFORM_URL = "account/accountform";
-
+	private static final String NEW_ACCOUNT_ACCOUNTFORM_URL = "account/newaccount";
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
 	}
 
-	@GetMapping("account/new")
-	public String newAccount(Model model) {
-		model.addAttribute("account", new AccountBindingModel());
-
-		return ACCOUNT_ACCOUNTFORM_URL;
-	}
+	
 
 	@GetMapping("account/{id}/update")
 	public String updateAccount(@PathVariable String id, Model model) {
@@ -57,13 +52,42 @@ public class AccountController {
 		}
 		AccountBindingModel savedCommand = new AccountBindingModel();
 		
-		savedCommand = accountService.editAccountBindingModel(command);
+		try {
+			savedCommand = accountService.editAccountBindingModel(command);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		logger.info("EDITED: account id:" + savedCommand.getId());
 
 		return "redirect:/account/show";
 	}
+	@PostMapping("account/add")
+	public String saveNewAccount(@Valid @ModelAttribute("account") AccountBindingModel command,
+			BindingResult bindingResult) {
+		logger.info("EDITED POST Method " + command.getIdNumber());
+		if (bindingResult.hasErrors()) {
 
+			bindingResult.getAllErrors().forEach(objectError -> {
+				logger.info("Error: "+objectError.toString());
+			});
+
+			return ACCOUNT_ACCOUNTFORM_URL;
+		}
+		AccountBindingModel savedCommand = new AccountBindingModel();
+		
+		try {
+			savedCommand = accountService.saveAccountBindingModel(command);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		logger.info("EDITED: account id:" + savedCommand.getId());
+
+		return "redirect:/account/show";
+	}
 	@GetMapping("account/{id}/delete")
 	public String deleteById(@PathVariable String id) {
 
@@ -85,7 +109,7 @@ public class AccountController {
 	public String addAccount(Model model) {
 		model.addAttribute("account", new AccountBindingModel());
 		logger.info("Add accounts ");
-		return ACCOUNT_ACCOUNTFORM_URL;
+		return NEW_ACCOUNT_ACCOUNTFORM_URL;
 	}
 
 }

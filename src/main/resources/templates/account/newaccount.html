@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Account</title>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<th:block th:include="fragments/navbar::navbar"></th:block>
+		Account form
+		<div class="container mt-4 color-link-blue">
+			<form class="mt-4 color-link-blue" th:action="@{'/account/add'}"
+				th:method="post" th:object=${account}>
+				
+				<h2>Account</h2>
+				<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+					<p>Please Correct Errors Below</p>
+				</div>
+				<div class="form-group ">
+					<label for="idNumber">Id Number</label> <input th:type="text"
+						class="form-control" id="idNumber" th:field="*{idNumber}" />
+				</div>
+				<div class="form-group ">
+					<label for="name">Name</label> <input th:type="text"
+						class="form-control" id="name" th:field="*{name}" />
+				</div>
+				<div class="form-group ">
+					<label for="email">Email</label> <input th:type="text"
+						class="form-control" id="email" th:field="*{email}" />
+				</div>
+				<div class="form-group ">
+					<label for="phone">Phone</label> <input th:type="text"
+						class="form-control" id="phone" th:field="*{phone}" />
+				</div>
+
+				<div class="form-group ">
+					<label for="country">Country</label> <input th:type="text"
+						class="form-control" th:field="*{adress.country}" />
+				</div>
+				<div class="form-group ">
+					<label for="city">City</label> <input th:type="text"
+						class="form-control" th:field="*{adress.city}" />
+				</div>
+				<div class="form-group ">
+					<label for="street">Street</label> <input th:type="text"
+						class="form-control" th:field="*{adress.street}" />
+				</div>
+				<div class="form-group ">
+					<label for="street">Street Number</label> <input th:type="text"
+						class="form-control" th:field="*{adress.streetNumber}" />
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+
+		</div>
+
+	</div>
+</body>
+</html>

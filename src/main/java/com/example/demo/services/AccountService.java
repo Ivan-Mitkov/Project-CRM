@@ -13,7 +13,7 @@ import com.example.demo.viewmodel.AdressViewModel;
 
 public interface AccountService {
 
-	Account findAccountById(Long id);
+	Account findAccountById(Long id) throws Exception;
 
 	Optional<Account> findAccountByName(String name);
 
@@ -31,6 +31,6 @@ public interface AccountService {
 
 	AdressViewModel findAddressByAccountIdNumber(String idNumber);
 
-	AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command);
+	AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command) throws Exception;
 
 }
