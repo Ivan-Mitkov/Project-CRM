@@ -134,13 +134,26 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	@Transactional
 	public AccountBindingModel editAccountBindingModel(@Valid AccountBindingModel command) {
-		//tuk ima problem
+		//get account 
 		Optional<Account> detachedAccount= repository.findById(command.getId());
 		if(detachedAccount.isPresent()) {
-			Account accountForm=accountBindingModelToAccount.convert(command);
-			AdressBindingModel adress=command.getAdress();
-			Adress detachedAddress=addressBindingModelToAddress.convert(adress);
-			accountForm.setAdress(detachedAddress);
+			//from this account get address
+			Account accountForm=detachedAccount.get();			
+			Adress addressInDatabase=accountForm.getAdress();
+			
+			//get address from form
+			AdressBindingModel addressInBindingModel=command.getAdress();			
+			Adress detachedAddress=addressBindingModelToAddress
+					.convert(addressInBindingModel);
+			
+			//set address in database with fields from form
+			addressInDatabase.setAdditionalAdressInfo(detachedAddress.getAdditionalAdressInfo());
+			addressInDatabase.setCountry(detachedAddress.getCountry());
+			addressInDatabase.setCity(detachedAddress.getCity());
+			addressInDatabase.setStreet(detachedAddress.getStreet());
+			addressInDatabase.setStreetNumber(detachedAddress.getStreetNumber());
+			
+			
 			Account savedAccount=repository.save(accountForm);
 			return accountToAccountBindingModel.convert(savedAccount);
 		}
