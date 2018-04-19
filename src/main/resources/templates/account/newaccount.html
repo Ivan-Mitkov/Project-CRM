@@ -17,43 +17,60 @@
 		<div class="container mt-4 color-link-blue">
 			<form class="mt-4 color-link-blue" th:action="@{'/account/add'}"
 				th:method="post" th:object=${account}>
-				
+
 				<h2>Account</h2>
 				<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
 					<p>Please Correct Errors Below</p>
 				</div>
-				<div class="form-group ">
+				<div  th:class="${#fields.hasErrors('idNumber')}
+                                ? 'col-md-5 form-group has-error' : 'col-md-5 form-group'">
 					<label for="idNumber">Id Number</label> <input th:type="text"
-						class="form-control" id="idNumber" th:field="*{idNumber}" />
+						class="form-control" id="idNumber" th:field="*{idNumber}"/> 
+						<small id="idNumHelp" class="help-block"
+						 th:each="error : ${#fields.errors('idNumber')}" th:text="${error}">Error Message</small>
+						
 				</div>
-				<div class="form-group ">
+				<div th:class="${#fields.hasErrors('name')}
+                                ? 'col-md-5 form-group has-error' : 'col-md-5 form-group'">
 					<label for="name">Name</label> <input th:type="text"
-						class="form-control" id="name" th:field="*{name}" />
+						class="form-control" id="name" th:field="*{name}" th:errorclass="has-error"/>
+						<small id="nameHelp" class="help-block"
+						 th:each="error : ${#fields.errors('name')}" th:text="${error}">Error Message</small>
 				</div>
-				<div class="form-group ">
+				<div th:class="${#fields.hasErrors('email')}
+                                ? 'col-md-5 form-group has-error' : 'col-md-5 form-group'">
 					<label for="email">Email</label> <input th:type="text"
-						class="form-control" id="email" th:field="*{email}" />
+						class="form-control" id="email" th:field="*{email}" th:errorclass="has-error"/>
+						<small id="emailHelp" class="help-block"
+						 th:each="error : ${#fields.errors('email')}" th:text="${error}">Error Message</small>
 				</div>
-				<div class="form-group ">
+				<div th:class="${#fields.hasErrors('phone')}
+                                ? 'col-md-5 form-group has-error' : 'col-md-5 form-group'">
 					<label for="phone">Phone</label> <input th:type="text"
-						class="form-control" id="phone" th:field="*{phone}" />
+						class="form-control" id="phone" th:field="*{phone}" th:errorclass="has-error"/>
+						<small id="phoneHelp" class="help-block"
+						 th:each="error : ${#fields.errors('phone')}" th:text="${error}">Error Message</small>
 				</div>
 
-				<div class="form-group ">
+				<div class='col-md-5 form-group'>
 					<label for="country">Country</label> <input th:type="text"
-						class="form-control" th:field="*{adress.country}" />
+						class="form-control" th:field="*{adress.country}"/>
+						
 				</div>
-				<div class="form-group ">
+				<div class='col-md-5 form-group'>
 					<label for="city">City</label> <input th:type="text"
-						class="form-control" th:field="*{adress.city}" />
+						class="form-control" th:field="*{adress.city}"/>
+					
 				</div>
-				<div class="form-group ">
+				<div class='col-md-5 form-group'>
 					<label for="street">Street</label> <input th:type="text"
 						class="form-control" th:field="*{adress.street}" />
+						
 				</div>
-				<div class="form-group ">
-					<label for="street">Street Number</label> <input th:type="text"
+				<div class='col-md-5 form-group'>
+					<label for="streetNumber">Street Number</label> <input th:type="text"
 						class="form-control" th:field="*{adress.streetNumber}" />
+						
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>

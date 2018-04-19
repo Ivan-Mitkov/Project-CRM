@@ -44,4 +44,7 @@ a:hover{
 color: red;
 display: inline-block;
 }
+.has-error{
+	color: red;
+}
 

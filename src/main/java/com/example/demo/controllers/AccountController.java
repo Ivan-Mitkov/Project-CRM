@@ -33,7 +33,7 @@ public class AccountController {
 
 	@GetMapping("account/{id}/update")
 	public String updateAccount(@PathVariable String id, Model model) {
-		model.addAttribute("account", accountService.findAccountByIdNumber(id));
+		model.addAttribute("account", accountService.findAccountByIdNumber(id).get());
 		logger.info("Inside GET Method update account" + id);
 		return ACCOUNT_ACCOUNTFORM_URL;
 	}
@@ -42,10 +42,11 @@ public class AccountController {
 	public String saveOrUpdate(@Valid @ModelAttribute("account") AccountBindingModel command,
 			BindingResult bindingResult) {
 		logger.info("EDITED POST Method " + command.getIdNumber());
+		
 		if (bindingResult.hasErrors()) {
-
+			
 			bindingResult.getAllErrors().forEach(objectError -> {
-				logger.info("Error: "+objectError.toString());
+				logger.info("Error UPDATE: "+objectError.toString());
 			});
 
 			return ACCOUNT_ACCOUNTFORM_URL;
@@ -73,7 +74,7 @@ public class AccountController {
 				logger.info("Error: "+objectError.toString());
 			});
 
-			return ACCOUNT_ACCOUNTFORM_URL;
+			return NEW_ACCOUNT_ACCOUNTFORM_URL;
 		}
 		AccountBindingModel savedCommand = new AccountBindingModel();
 		
