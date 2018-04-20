@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setEnabled(true);
-        user.setCredentialsNonExpired(true);
+        user.setCredentialsNonExpired(true);        
         this.userRepository.save(user);
     }
 

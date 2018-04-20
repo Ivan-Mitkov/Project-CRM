@@ -3,33 +3,38 @@
 .navbar-purple{
 	background-color: #830039;
 }
+.navbar-blue{
+	background-color: #044967;
+}
 
 .nav-link-white{
-	color:#FFC14E;
+	color:#FFF465;
 }
 .nav-button-white{
 	color:#FFC14E;
 }
 .button-purple{
 	color: #FFC14E;
-    background-color: #830039;
-    border-color: #830039;
+    background-color: #4485A1;
+    border-color: #4485A1;
 }
 .button-blue{
 	color: #FFC14E;
-    background-color: #665FE9;
-    border-color: #665FE9;
+    background-color: #4485A1;
+    border-color: #4485A1;
+    button
 }
 .button-light{
 	color: #1D1300;
     background-color: #FFC14E;
     border-color: #FFC14E;
 }
-button:hover {
-    color:#9B6400;
+.button-blue:hover {
+    color:#FFF465;
 }
-a:hover{
-	color:#9B6400;
+
+.nav-link-white:hover{
+	color:#EAD90C;
 }
 .mes{
 	color: #18000B;

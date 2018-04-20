@@ -34,7 +34,11 @@ public class UserController {
 
         return "redirect:/";
     }
-
+    @PostMapping("/login")
+    public String registerUser(){
+       
+        return "index";
+    }
     @GetMapping("/login")
     public String getLoginPage(@RequestParam(required = false) String error, Model model){
         if(error != null){
@@ -49,5 +53,11 @@ public class UserController {
         List<UserViewModel> userViewModelList = this.userService.findAll();
         model.addAttribute("users", userViewModelList);
         return "users";
+    }
+    @GetMapping("/logout")
+    public String logout(){
+       
+
+        return "index";
     }
 }

@@ -1,115 +1,121 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-  <body>
+<body>
 
-<div th:fragment="navbar">
-<nav class="navbar navbar-expand-lg  nav-link-white navbar-purple ">
-	<div class="container-fluid">
-		  <a class="navbar-brand nav-link-white" href="http://localhost:8080/crm.simple/">CRM </a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" 
-		  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-		  aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		
-		  <div class="collapse navbar-collapse nav-link-white" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto nav-link-white ">
-		    
-		      <li class="nav-item active">
-		        <a class="nav-link nav-link-white" href="http://localhost:8080/crm.simple/">Home </a>
-		      </li>
-		      
-		      <li class="nav-item dropdown ">
-		        <a class="nav-link nav-link-white " 
-		        role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
-		         aria-haspopup="true" aria-expanded="false" >
-		        
-		         Accounts
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		         <a class="dropdown-item" th:href="@{/account/show}">Show</a>
-		          <div class="divider"></div>
-		         <a class="dropdown-item" th:href="@{/account/add}">Add</a>
-		        
-		        </div>
-		      </li>
-		       <li class="nav-item dropdown">
-		        <a class="nav-link nav-link-white"
-			         role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
-			         aria-haspopup="true" aria-expanded="false" >
-			        Opportunity
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			         <a class="dropdown-item" th:href="@{/opportunities/show}">Show</a>
-			          <div class="divider"></div>
-			         <a class="dropdown-item" th:href="@{/opportunities/add}">Add</a>
-			        
-		        </div>
-		      </li>
-		      <li class="nav-item dropdown">
-		        <a class="nav-link nav-link-white"
-			         role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
-			         aria-haspopup="true" aria-expanded="false" >
-			        Employees
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			         <a class="dropdown-item" th:href="@{/emploees/show}">Show</a>
-			          <div class="divider"></div>
-			         <a class="dropdown-item" th:href="@{/employees/add}">Add</a>
-			        
-		        </div>
-		      </li>
-		       <li class="nav-item dropdown">
-		        <a class="nav-link nav-link-white"
-			         role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
-			         aria-haspopup="true" aria-expanded="false" >
-			        Tasks
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			         <a class="dropdown-item" th:href="@{/tasks/show}">Show</a>
-			          <div class="divider"></div>
-			         <a class="dropdown-item" th:href="@{/task/add}">Add</a>
-			        
-		        </div>
-		      </li>
-		        <li class="nav-item dropdown">
-		        <a class="nav-link nav-link-white"
-			         role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
-			         aria-haspopup="true" aria-expanded="false" >
-			        Events
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			         <a class="dropdown-item" th:href="@{/events/show}">Show</a>
-			          <div class="divider"></div>
-			         <a class="dropdown-item" th:href="@{/events/add}">Add</a>
-			        
-		        </div>
-		      </li>
-		    
-		        <li class="nav-item dropdown">
-		        <a class="nav-link nav-link-white"
-			         role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
-			         aria-haspopup="true" aria-expanded="false" >
-			        Products
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			         <a class="dropdown-item" th:href="@{/products/show}">Show</a>
-			          <div class="divider"></div>
-			         <a class="dropdown-item" th:href="@{/products/add}">Add</a>
-			        
-		        </div>
-		      </li>
-		       
-		    </ul>
-		    
-		  </div>
-		  </div>
+	<div th:fragment="navbar">
+		<nav class="navbar navbar-expand-lg  nav-link-white navbar-blue ">
+			<div class="container-fluid">
+				<a class="navbar-brand nav-link-white"
+					href="http://localhost:8080/index">CRM </a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse nav-link-white"
+					id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto nav-link-white ">
+
+						<li class="nav-item active"><a
+							class="nav-link nav-link-white"
+							th:href="@{/index}">Home </a></li>
+
+						<li class="nav-item dropdown "><a
+							class="nav-link nav-link-white " role="button" th:href="@{/}"
+							id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Accounts </a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/account/show}">Show</a>
+								<div class="divider"></div>
+								<a class="dropdown-item" th:href="@{/account/add}">Add</a>
+
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link nav-link-white" role="button" th:href="@{/}"
+							id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Opportunity </a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/opportunities/show}">Show</a>
+								<div class="divider"></div>
+								<a class="dropdown-item" th:href="@{/opportunities/add}">Add</a>
+
+							</div></li>
+
+
+						<li sec:authorize="hasRole('ADMIN') or hasRole('MANAGER')"
+							class="nav-item dropdown"><a class="nav-link nav-link-white"
+							role="button" th:href="@{/}" id="navbarDropdown"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Employees </a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/emploees/show}">Show</a>
+								<div class="divider"></div>
+								<a class="dropdown-item" th:href="@{/employees/add}">Add</a>
+
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link nav-link-white" role="button" th:href="@{/}"
+							id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Tasks </a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/tasks/show}">Show</a>
+								<div class="divider"></div>
+								<a class="dropdown-item" th:href="@{/task/add}">Add</a>
+
+							</div></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link nav-link-white" role="button" th:href="@{/}"
+							id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Events </a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/events/show}">Show</a>
+								<div class="divider"></div>
+								<a class="dropdown-item" th:href="@{/events/add}">Add</a>
+
+							</div></li>
+
+						<li class="nav-item dropdown"><a
+							class="nav-link nav-link-white" role="button" th:href="@{/}"
+							id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Products </a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/products/show}">Show</a>
+								<div class="divider"></div>
+								<a class="dropdown-item" th:href="@{/products/add}">Add</a>
+
+							</div></li>
+
+						<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a
+							class="nav-link nav-link-white" href="/users">Users</a></li>
+
+						<li class="nav-item nav-link-white"><a class="nav-link nav-link-white" th:href="@{/register}">Register</a>
+						</li>
+						<li class="nav-item pull-xs-right" sec:authorize="isAnonymous()">
+							<a class="nav-link nav-link-white" th:href="@{/login}">Login</a>
+						</li>
+						<li class="nav-item nav-link-white pull-xs-right"
+							sec:authorize="isAuthenticated()"><a class="nav-link nav-link-white"
+							th:href="@{/logout}">Logout</a></li>
+
+					</ul>
+
+				</div>
+			</div>
 		</nav>
 
-</div>
- </body>
-  
+	</div>
+</body>
+
 </html>
