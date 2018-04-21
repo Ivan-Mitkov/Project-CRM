@@ -25,6 +25,8 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
     private ModelMapper modelMapper;
 
     @Override
@@ -35,7 +37,8 @@ public class UserServiceImpl implements UserService {
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setEnabled(true);
-        user.setCredentialsNonExpired(true);        
+        user.setCredentialsNonExpired(true); 
+        
         this.userRepository.save(user);
     }
 
@@ -60,5 +63,9 @@ public class UserServiceImpl implements UserService {
         }
 
         return user;
+    }
+    @Override
+    public User getUserByUsername(String username) {
+        return this.userRepository.findOneByUsername(username);
     }
 }

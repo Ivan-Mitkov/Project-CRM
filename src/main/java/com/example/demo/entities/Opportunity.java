@@ -14,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.example.demo.enums.Status;
-
 @Entity
 @Table(name="opportunity")
 public class Opportunity {

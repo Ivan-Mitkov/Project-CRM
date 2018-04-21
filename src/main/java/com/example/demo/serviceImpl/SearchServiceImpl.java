@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entities.Account;
 import com.example.demo.entities.Contact;
@@ -54,11 +55,12 @@ public class SearchServiceImpl implements SearchService {
 	}
 	
 	@Override
+	@Transactional
 	public List<AccountViewModel> searchAccounts(String searched){
 		ModelMapper mapper=new ModelMapper();
 		List<Account>accounts=accRep.findAll();
 		
-		Predicate<Account> searcheinAccount=new Predicate<Account>() {
+		Predicate<Account> searcheInAccount=new Predicate<Account>() {
 			@Override
 			public boolean test(Account x) {
 				boolean found=false;
@@ -93,12 +95,13 @@ public class SearchServiceImpl implements SearchService {
 		};
 		
 		return accounts.stream()
-				.filter(searcheinAccount)
+				.filter(searcheInAccount)
 				.map(x->mapper.map(x, AccountViewModel.class))		
 				.collect(Collectors.toList());
 	
 	}
 	@Override
+	@Transactional
 	public List<ContactViewModel> searchContacts(String searched){
 		ModelMapper mapper=new ModelMapper();
 		List<Contact>contacts=contRep.findAll();
@@ -137,10 +140,6 @@ public class SearchServiceImpl implements SearchService {
 				.collect(Collectors.toList());
 	
 	}
-	
-	
-	
-	
 	
 }
 

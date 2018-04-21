@@ -1,7 +1,5 @@
 package com.example.demo.bindingmodel;
 
-import java.util.List;
-
 
 public class EmployeeBindingModel {
 

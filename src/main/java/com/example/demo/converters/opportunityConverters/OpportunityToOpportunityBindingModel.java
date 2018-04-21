@@ -5,10 +5,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.bindingmodel.OpportunityBindingModel;
-import com.example.demo.converters.accountConverters.AccountToAccountBindingModel;
-import com.example.demo.converters.contactConverters.ContactToContactBindingModel;
 import com.example.demo.entities.Opportunity;
-import com.example.demo.enums.Status;
 
 @Component
 public class OpportunityToOpportunityBindingModel implements 

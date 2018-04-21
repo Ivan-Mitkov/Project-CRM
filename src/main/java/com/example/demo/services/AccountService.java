@@ -7,7 +7,6 @@ import javax.validation.Valid;
 
 import com.example.demo.bindingmodel.AccountBindingModel;
 import com.example.demo.entities.Account;
-import com.example.demo.entities.Adress;
 import com.example.demo.viewmodel.AccountViewModel;
 import com.example.demo.viewmodel.AdressViewModel;
 

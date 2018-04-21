@@ -5,8 +5,6 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.bindingmodel.SaleBindingModel;
-import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
-import com.example.demo.converters.employeeConverters.EmployeeBindingModelToEmployee;
 import com.example.demo.converters.productConverters.ProductBindingModelToProduct;
 import com.example.demo.entities.Sale;
 

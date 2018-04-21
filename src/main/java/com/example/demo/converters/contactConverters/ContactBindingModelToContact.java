@@ -5,8 +5,6 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.bindingmodel.ContactBindingModel;
-import com.example.demo.converters.accountConverters.AccountBindingModelToAccount;
-import com.example.demo.converters.opportunityConverters.OpportunityBindingModelToOpportunity;
 import com.example.demo.entities.Contact;
 
 @Component

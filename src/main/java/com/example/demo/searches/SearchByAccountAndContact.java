@@ -9,7 +9,7 @@ import com.example.demo.viewmodel.AccountViewModel;
 import com.example.demo.viewmodel.ContactViewModel;
 
 @Component
-public class SearchByAccountAndContact implements Searchable {
+public class SearchByAccountAndContact implements Searchable  {
 
 	List<AccountViewModel> searchAccounts;
 	List<ContactViewModel> searchContacts;

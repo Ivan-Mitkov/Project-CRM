@@ -12,11 +12,9 @@ import com.example.demo.bindingmodel.EmployeeBindingModel;
 import com.example.demo.entities.Account;
 import com.example.demo.entities.Employee;
 import com.example.demo.entities.Event;
-import com.example.demo.entities.Manager;
 import com.example.demo.entities.Sale;
 import com.example.demo.entities.Task;
 import com.example.demo.serviceImpl.EmployeeServiceImpl;
-import com.example.demo.serviceImpl.ManagerServiceImpl;
 
 @Component
 public class EmployeeBindingModelToEmployee implements 
