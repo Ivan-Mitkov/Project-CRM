@@ -10,12 +10,12 @@ public class AccountBindingModel {
 	private Long id;
 	@NotNull
 	@NotBlank(message="Id Number is required\n")
-	@Size(min=1,message="Id Number is empty")
+	@Size(min=1,message="Id Number is empty ")
 	private String idNumber;
 	
 	@NotNull
-	@NotBlank
-	@Size(min=1,message="Name is empty")
+	@NotBlank(message="Name is required\n")
+	@Size(min=1,message="Name is empty ")
 	private String name;
 	
 	@Email(message="please enter a valid email")

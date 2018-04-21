@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.errors.Errors;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -37,7 +38,19 @@ public class UserServiceImpl implements UserService {
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setEnabled(true);
-        user.setCredentialsNonExpired(true); 
+        user.setCredentialsNonExpired(true);
+        if(user.getAuthorities()==null) {
+        	 HashSet<Role>roles=new HashSet<>();
+             Role role=new Role();
+             role.setAuthority("ROLE_EMPLOYEE");
+             roles.add(role);
+             user.setAuthorities(roles);
+        }
+        else {
+        	HashSet<Role>roles=(HashSet<Role>) user.getAuthorities();
+        	user.setAuthorities(roles);
+        }
+       
         
         this.userRepository.save(user);
     }

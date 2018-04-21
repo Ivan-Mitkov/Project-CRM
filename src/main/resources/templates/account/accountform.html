@@ -15,8 +15,8 @@
 
 	<div class="container-fluid">
 		Account form
-		<div class="container mt-4 color-link-blue">
-			<form class="mt-4 color-link-blue" 
+		<div class="container mt-10 color-link-blue">
+			<form class="mt-10 color-link-blue" 
 				th:action="@{'/account/'+${account.getId()}+'/update'}"
 				th:method="post" th:object=${account}>
 				<input type="hidden" th:field="*{id}" />
