@@ -33,7 +33,7 @@
 					<div class="panel panel-primary">
 
 						<div class="panel-heading">
-							<h1 class="panel-title">Results</h1>
+							<h1 class="panel-title">Accounts</h1>
 						</div>
 						<div class="panel-body">
 							<!-- check this list -->
@@ -50,13 +50,51 @@
 										</tr>
 									</thead>
 									
-									<tr th:each="account : ${accounts}" >
+									<tr th:each="account : ${search.searchAccounts}" >
 										<td th:text="${accountStat.count}">Number</td>
 										<td th:text="${account.idNumber}">Id Number</td>
 										<td th:text="${account.name}">Name</td>
 										<td th:text="${account.email}">email</td>
 										<td th:text="${account.phone}">Phone</td>
 										<td th:text="|${account.adress.city}  ${account.adress.street}|">Address</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" style="margin-top: 20px">
+			<div class="row">
+				<div class="col-md-15 col-md-offset-3">
+					<div class="panel panel-primary">
+
+						<div class="panel-heading">
+							<h1 class="panel-title">Contacts</h1>
+						</div>
+						<div class="panel-body">
+							<!-- check this list -->
+							<div class="table-responsive">
+								<table class="table table-hover ">
+									<thead class="thead-inverse">
+										<tr>
+											<th>Number</th>
+											<th>Id Number</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone</th>	
+																				
+										</tr>
+									</thead>
+									
+									<tr th:each="contact : ${search.searchContacts}" >
+										<td th:text="${contactStat.count}">Number</td>
+										<td th:text="${contact.idNumber}">Id Number</td>
+										<td th:text="${contact.name}">Name</td>
+										<td th:text="${contact.email}">email</td>
+										<td th:text="${contact.phone}">Phone</td>
+										
 									</tr>
 								</table>
 							</div>

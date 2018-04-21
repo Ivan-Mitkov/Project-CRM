@@ -11,14 +11,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.searches.SearchByAccountAndContact;
+import com.example.demo.searches.Searchable;
 import com.example.demo.serviceImpl.AccountServiceImpl;
 import com.example.demo.services.SearchService;
 import com.example.demo.viewmodel.AccountViewModel;
 
 @Controller
 public class SearchController {
-	@Autowired
+	
 	private SearchService searchService;
+	private Searchable search;
+	@Autowired
+	public SearchController(SearchService searchService, Searchable search) {
+		this.searchService = searchService;
+		this.search = search;
+	}
+
 	Logger logger = LoggerFactory.getLogger(SearchController.class);
 	
 	@GetMapping("/search")
@@ -30,11 +39,14 @@ public class SearchController {
 			return model ;
 		}
 		else {
+			SearchByAccountAndContact search=new SearchByAccountAndContact();
+			
 			logger.info("Searching for: "+name);
-			List<AccountViewModel>accounts=new ArrayList<>();
-			accounts=searchService.searchAccounts(name);
+			
+			search.setSearchAccounts(searchService.searchAccounts(name));
+			search.setSearchContacts(searchService.searchContacts(name));
 			model.setViewName("search");
-			model.addObject("accounts", accounts);
+			model.addObject("search", search);
 			return model;
 		}
 		
