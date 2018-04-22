@@ -30,7 +30,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/", "/register", "/css/**", "/js/**","/login").permitAll()
                     .antMatchers("/employee/**","/managers/**").access("hasRole('ADMIN') or hasRole('MANAGER')")
-                    .antMatchers("/account/**","/contact/**","/event/**","/oppotrunity/**",
+                    .antMatchers("/accounts/**","/contact/**","/event/**","/opportunity/**",
                     		"/product/**","/sale/**","/task/**")
                     		.access("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('EMPLOYEE')")              
                     .antMatchers("/users").hasRole("ADMIN")
