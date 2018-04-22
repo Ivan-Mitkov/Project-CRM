@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Products</title>
+<title>Employee Detail</title>
 
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
@@ -13,10 +13,17 @@
 <body>
 		<th:block th:include="fragments/navbar::navbar"></th:block>
 
-	<div class="container-fluid mt-15">
-		Products
+	
+	
+	<div class="container-fluid">
+		<div class="container d-flex justify-content-middle mt-4 mb-4">
+			<form class="mx-auto" th:action="@{/searchEmployee}" th:method="GET">
+				<input  type="text" name ="name" placeholder="Search Employee"/>
+				<button class="button-blue btn" type="submit">Search</button>
+			</form>
+			
+		</div> 
 
 	</div>
-
 </body>
 </html>

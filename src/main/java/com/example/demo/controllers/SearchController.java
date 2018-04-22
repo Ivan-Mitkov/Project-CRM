@@ -60,5 +60,25 @@ public class SearchController {
 		
 		
 	}
+	@GetMapping("/searchEvent")
+	public ModelAndView searchEvents(@RequestParam(name="name")String name,
+			ModelAndView model) {		
+		logger.info("Inside search event controller!");
+		
+			model.setViewName("index");
+			return model ;
+		
+		
+	}
+	@GetMapping("/searchEmployee")
+	public ModelAndView searchEmployee(@RequestParam(name="name")String name,
+			ModelAndView model) {		
+		logger.info("Inside search event controller!");
+		
+			model.setViewName("index");
+			return model ;
+		
+		
+	}
 	
 }

@@ -6,32 +6,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.demo.services.EventService;
 import com.example.demo.services.ProductService;
 
 @Controller
-public class ProductController {
-	Logger logger = LoggerFactory.getLogger(ProductController.class);
-	private final ProductService productService;
-	public ProductController(ProductService productService) {
-		this.productService = productService;
-		logger.info("Inside PRODUCT CONTROLLER ");
+public class EventController {
+	Logger logger = LoggerFactory.getLogger(EventController.class);
+	private final EventService eventService;
+	public EventController(EventService eventService) {
+		this.eventService = eventService;
+		logger.info("Inside EVENT CONTROLLER ");
 	}
 
 	
-	@GetMapping("products/show")
+	@GetMapping("events/show")
 	public String getAll(Model model) {
 //		List<ProductViewModel> products = productService.findAllProducts();
 //		model.addAttribute("products", products);
-		logger.info("All products ");
-		return "product/products";
+		logger.info("All eventss ");
+		return "event/events";
 	}
 	
-	@GetMapping("products/detail")
+	@GetMapping("events/detail")
 	public String getDetail(Model model) {
 //		List<ProductViewModel> products = productService.findAllProducts();
 //		model.addAttribute("products", products);
-		logger.info("All products ");
-		return "product/productdetail";
+		logger.info("Event detail ");
+		return "event/eventdetail";
 	}
 	
 }
