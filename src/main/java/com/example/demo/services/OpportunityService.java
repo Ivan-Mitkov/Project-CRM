@@ -8,4 +8,8 @@ public interface OpportunityService {
 
 	List<OpportunityViewModel> findAllOpportunitiesOfAnAccount(Long idDB);
 
+	void deleteByIdNumber(String id);
+
+	List<OpportunityViewModel> findAllOpportunities();
+
 }

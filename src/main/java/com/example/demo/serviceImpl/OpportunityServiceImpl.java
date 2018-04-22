@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.converters.opportunityConverters.OpportunityToOpportunityViewModel;
+import com.example.demo.entities.Account;
 import com.example.demo.entities.Opportunity;
 import com.example.demo.repositories.OpportunityRepository;
 import com.example.demo.services.OpportunityService;
+import com.example.demo.viewmodel.AccountViewModel;
 import com.example.demo.viewmodel.OpportunityViewModel;
 @Service
 @Transactional
@@ -39,6 +41,27 @@ public class OpportunityServiceImpl implements OpportunityService {
 				.map((Opportunity a)->opportunityToOpportunityViewModel.convert(a))
 				.collect(Collectors.toList());
 		return opportunityViews;
+	}
+
+
+
+	@Override
+	public void deleteByIdNumber(String id) {
+		Opportunity opportunity = repository.findById(id).get();
+		
+		repository.delete(opportunity);
+		
+	}
+
+
+
+	@Override
+	public List<OpportunityViewModel> findAllOpportunities() {
+		List<Opportunity> opportunity = repository.findAll();
+		List<OpportunityViewModel> allOpportunity = new ArrayList<>();
+		allOpportunity = opportunity.stream().map((Opportunity a) -> opportunityToOpportunityViewModel.convert(a))
+				.collect(Collectors.toList());
+		return allOpportunity;
 	}
 	
 

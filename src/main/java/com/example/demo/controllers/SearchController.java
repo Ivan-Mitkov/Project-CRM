@@ -50,6 +50,15 @@ public class SearchController {
 		
 	}
 	
-	
+	@GetMapping("/searchProduct")
+	public ModelAndView searchProduct(@RequestParam(name="name")String name,
+			ModelAndView model) {		
+		logger.info("Inside search product controller!");
+		
+			model.setViewName("index");
+			return model ;
+		
+		
+	}
 	
 }
